@@ -281,6 +281,7 @@
     </Compile>
     <Compile Include="Models\Repository\CategoryRepository.cs" />
     <Compile Include="Models\Repository\ICategoryRepository.cs" />
+    <Compile Include="Models\Repository\INews.cs" />
     <Compile Include="Models\Repository\MenuRepository.cs" />
     <Compile Include="Models\Repository\ILoginRepository.cs" />
     <Compile Include="Models\Repository\IMenuRepository.cs" />
