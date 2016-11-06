@@ -276,6 +276,7 @@
     </Compile>
     <Compile Include="Models\News\NewsInputViewModel.cs" />
     <Compile Include="Models\News\NewsListViewModel.cs" />
+    <Compile Include="Models\Repository\aaaClass1.cs" />
     <Compile Include="Models\Repository\CategoryRepository.cs" />
     <Compile Include="Models\Repository\ICategoryRepository.cs" />
     <Compile Include="Models\Repository\INews.cs" />
