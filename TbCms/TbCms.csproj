@@ -285,6 +285,7 @@
     <Compile Include="Models\Repository\news.cs" />
     <Compile Include="Models\Repository\SystemUserRepository.cs" />
     <Compile Include="Models\Repository\testClass1.cs" />
+    <Compile Include="Models\Repository\zzz.cs" />
     <Compile Include="Models\SystemUser\SystemUserInputViewModel.cs" />
     <Compile Include="Models\SystemUser\SystemUserListViewModel.cs" />
     <Compile Include="Models\SystemUser\SystemUserTableViewModel.cs" />
