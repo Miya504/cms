@@ -37,21 +37,7 @@ namespace TbCms.Controllers.Internal.InternalCommon
         [HttpGet]
         public ActionResult Login()
         {
-            var loginViewModel = new LoginViewModel();
-
-            // クッキー情報がある場合はそこから復元する.
-            if (Request.Cookies["LoginUserId"] != null)
-            {
-                loginViewModel.system_user_id = Request.Cookies["LoginUserId"].Value;
-                if (loginViewModel.system_user_id != null && loginViewModel.system_user_id != string.Empty)
-                {
-                    loginViewModel.IsSaveId = true;
-                }
-            }
-            if (Request.Cookies["LoginPassword"] != null)
-            {
-                loginViewModel.password = Request.Cookies["LoginPassword"].Value;
-            }
+            var loginViewModel =new LoginViewModel();
 
             return View(loginViewModel);
         }
@@ -63,33 +49,6 @@ namespace TbCms.Controllers.Internal.InternalCommon
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            // パスワード保存状態を更新する.
-            if (model.IsSaveId)
-            {
-                // ユーザID.
-                var cookie = new HttpCookie("LoginUserId");
-                cookie.Value = model.system_user_id;
-                cookie.Expires = DateTime.MaxValue; // 期間は最大.
-                Response.Cookies.Add(cookie);
-
-                // パスワード.
-                cookie = new HttpCookie("LoginPassword");
-                cookie.Value = model.password;
-                cookie.Expires = DateTime.MaxValue; // 期間は最大.
-                Response.Cookies.Add(cookie);
-            }
-            else
-            {
-                // クッキーの削除.
-                var cookie = new HttpCookie("LoginUserId");
-                cookie.Value = null;
-                Response.Cookies.Add(cookie);
-                cookie = new HttpCookie("LoginPassword");
-                cookie.Value = null;
-                Response.Cookies.Add(cookie);
-            }
-
-            // ログインチェック.
             var db = new TbCmsContext();
 
             var loginViewModel = _rep.CheckLogin(model);
@@ -99,18 +58,16 @@ namespace TbCms.Controllers.Internal.InternalCommon
                 // ログイン成功.
 
                 // セッションに必要な情報を設定.
-                Session["IsAdministrator"] = loginViewModel.IsAdmin;
-                Session["IsCreateNews"] = loginViewModel.IsCreateNews;
-                Session["IsCreateContents"] = loginViewModel.IsCreateContents;
+                Session["IsAdministrator"] = true;  // TODO：暫定.
+                Session["IsCreateNews"] = true;     // TODO：暫定.
+                Session["IsCreateContents"] = true;  // TODO：暫定.
 
                 Session["LoginId"] = loginViewModel.system_user_id;
                 
-                // メニュー画面に遷移.
                 return Redirect("../Menu/Menu");
             }
             else
             {
-                // ログインできない場合はViewの移動をしない.
                 return View(loginViewModel);
             }
         }

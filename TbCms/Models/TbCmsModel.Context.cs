@@ -51,12 +51,12 @@ namespace TbCms.Models
         public virtual DbSet<t_file_infos> t_file_infos { get; set; }
         public virtual DbSet<t_files> t_files { get; set; }
         public virtual DbSet<t_news> t_news { get; set; }
+        public virtual DbSet<t_news_add__element_tags> t_news_add__element_tags { get; set; }
         public virtual DbSet<t_news_add_element_tags> t_news_add_element_tags { get; set; }
         public virtual DbSet<t_news_add_elements> t_news_add_elements { get; set; }
         public virtual DbSet<t_news_add_files> t_news_add_files { get; set; }
         public virtual DbSet<t_news_files> t_news_files { get; set; }
         public virtual DbSet<t_news_tags> t_news_tags { get; set; }
         public virtual DbSet<t_paper_size_papers> t_paper_size_papers { get; set; }
-        public virtual DbSet<m_permission_kinds> m_permission_kinds { get; set; }
     }
 }

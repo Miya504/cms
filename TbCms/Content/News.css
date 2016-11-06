@@ -170,6 +170,18 @@ textarea{
 div.addElement {
     padding: 10px 0px;
 }
+
+.ui-datepicker-trigger {
+    border:1px solid #777;
+    margin: 5px 0px;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+    width: 100px;
+    margin-left:25px;
+}
 /* ▼ タブメニュー全体の設定 */
 div.tabbox { margin: 15px 0 0 0; padding: 10px 20px;
     

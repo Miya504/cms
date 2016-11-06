@@ -4,13 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TbCms.Models;
-using TbCms.Models.Repository;
 
 namespace TbCms.Controllers.Internal.Master
 {
     public class CategoryController : Controller
     {
-
+        /*
         /// <summary>
         /// リポジトリクラス.
         /// </summary>
@@ -30,6 +29,7 @@ namespace TbCms.Controllers.Internal.Master
             // リポジトリクラスを紐づける.
             _rep = rep;
         }
+        */
 
         /// <summary>
         /// 一覧表示(初回).
@@ -41,10 +41,11 @@ namespace TbCms.Controllers.Internal.Master
 
             var db = new TbCmsContext();
 
-            return View(_rep.GetFirstListData());
-            //return View();
+            //return View(_rep.GetFirstListData());
+            return View();
         }
 
+        /*
         /// <summary>
         /// 一覧表示(検索).
         /// </summary>
@@ -57,6 +58,7 @@ namespace TbCms.Controllers.Internal.Master
 
             return View(_rep.GetSarchListData(model));
         }
+        */
 
         /// <summary>
         /// 新規登録(初回).
