@@ -219,6 +219,8 @@
     <Compile Include="Controllers\Internal\Master\CreatorsController.cs" />
     <Compile Include="Controllers\Internal\Master\TagController.cs" />
     <Compile Include="Controllers\Internal\News\NewsController.cs" />
+    <Compile Include="Controllers\Internal\Master\TagController2.cs" />
+    <Compile Include="Controllers\Internal\News\NewsController2.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
