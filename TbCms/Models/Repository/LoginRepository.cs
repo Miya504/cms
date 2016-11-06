@@ -31,37 +31,14 @@ namespace TbCms.Models.Repository
             retModel.password = reqModel.password;
 
             // 削除されていないかつID/パスワードが一致したものを抽出.
-            var userInfo = db.m_system_users
+            var idExist = db.m_system_users
                 .Where(a => a.system_user_id == reqModel.system_user_id)
                 .Where(a => a.password == reqModel.password)
-                .Where(a => a.delete_state == "0");
+                .Where(a => a.delete_state == "0")
+                .Any();
 
-            if(userInfo.Count() > 0)
-            {
-                retModel.IsSuccess = true;
+            retModel.IsSuccess = idExist ? true : false;
 
-                // 最初に見つかったユーザを対象とする.
-                var targetUser = userInfo.First();
-
-                foreach(m_permissions p in targetUser.m_roles.m_permissions)
-                {
-                    if(p.value == "1")
-                    {
-                        // 有効のもののみ探してフラグを立てる.
-                        if(p.permission_kind == "10") retModel.IsAdmin = true;
-                        else if(p.permission_kind == "101") retModel.IsCreateNews = true;
-                        else if (p.permission_kind == "201") retModel.IsCreateContents = true;
-                    }
-                }
-
-            }
-            else
-            {
-                // 1件も見つからない場合はNG.
-                retModel.IsSuccess = false;
-                retModel.LoginErrMessage = "IDもしくはパスワードが違います";
-            }
-            
             return retModel;
         }
 

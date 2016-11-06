@@ -4,62 +4,34 @@
     ViewBag.Title = "Login";
 }
 
-@Styles.Render("~/Content/InternalDefault.css")
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@Styles.Render("~/Content/MasterEdit.css")
 
 @using (Html.BeginForm())
 {
 
-    <h1>ログイン</h1>
-
-    <ul class="ul ul-login">
-
-        @if (Model.LoginErrMessage != null)
-        {
-            @Html.Label(Model.LoginErrMessage, new { @class = "validation" })
-        }
-
+    <div>
         <!-- システムユーザID -->
-        <li class="li li-login">
-            <div class="div div-login">
-                @Html.LabelFor(m => m.system_user_id, new { @class = "label" })
-                <br />
-                @Html.TextBoxFor(m => m.system_user_id, new { @class = "textbox" })
-                <br />
-                @Html.ValidationMessageFor(m => m.system_user_id, "", new { @class = "validation" })
-            </div>
-        </li>
+        <div class="form-group">
+            @Html.LabelFor(m => m.system_user_id)
+            @Html.TextBoxFor(m => m.system_user_id, new { @class = "search" })
+            @Html.ValidationMessageFor(m => m.system_user_id, "", new { @class = "text-denger" })
+        </div>
+        <br />
+    </div>
 
-        <!-- パスワード -->
-        <li class="li li-login">
-            <div class="div div-login">
-                @Html.LabelFor(m => m.password, new { @class = "label" })
-                <br />
-                @Html.PasswordFor(m => m.password, new { value = Model.password , @class = "password" })
-                <br />
-                @Html.ValidationMessageFor(m => m.password, "", new { @class = "validation" })
-            </div>
-        </li>
-
-        <!-- ID/パスワード保存 -->
-        <li class="li li-login">
-            <div class="div div-login">
-                @Html.CheckBoxFor(m => m.IsSaveId, new { @class = "check-box" })
-                @Html.LabelFor(m => m.IsSaveId, new { @class = "label label-supplemental" })
+        <div>
+            <!-- パスワード -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.password)
+                @Html.PasswordFor(m => m.password, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-denger" })
             </div>
             <br />
-        </li>
+        </div>
 
-        <!-- ログインボタン -->
-        <li class="li li-login">
-            <div class="div div-login">
-                <input type="submit" value="ログイン" class="button loginButton" />
-            </div>
-        </li>
-    </ul>
+        <input type="submit" value="ログイン" class="btn btn-registration" />
+}
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

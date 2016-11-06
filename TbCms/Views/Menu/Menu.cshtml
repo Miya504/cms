@@ -4,76 +4,11 @@
     ViewBag.Title = "Menu";
 }
 
-@Styles.Render("~/Content/Menu.css")
+@Styles.Render("~/Content/MasterEdit.css")
 
 @using (Html.BeginForm())
 {
 
-    //マスタメニュー表示
-    if (Model.IsMaster == true)
-    {
-
-        <h3 class="title3">マスタメンテナンス</h3>
-        <div class="sarchArea">
-
-            @for (int i = 0; i < Model.MasterMenuList.Length; i++)
-            {
-                //ボタンを設定
-                @Html.ActionLink(Model.MasterMenuList[i].menu_title, "ChangeView", new { menu_controller = Model.MasterMenuList[i].menu_controller, menu_action = Model.MasterMenuList[i].menu_action }, new { @class = "menuBtnInfo" })
-
-                //ボタンが３つ並ぶごとに改行
-                if ((i + 1) % 3 == 0)
-                {
-                    <br>
-                    <br>
-                }
-
-            }
-
-        </div>
-    }
-
-    //記事メニュー表示
-    if (Model.IsNews == true)
-    {
-        <h3 class="title3">記事</h3>
-        <div class="sarchArea">
-            @for (int i = 0; i < Model.NewsMenuList.Length; i++)
-            {
-
-                @Html.ActionLink(Model.NewsMenuList[i].menu_title, "ChangeView", new { menu_controller = Model.NewsMenuList[i].menu_controller, menu_action = Model.NewsMenuList[i].menu_action }, new { @class = "menuBtnInfo" })
-
-                if ((i + 1) % 3 == 0)
-                {
-                    <br>
-                    <br>
-                }
-
-            }
-        </div>
-    }
-
-    //コンテンツメニュー表示
-    if (Model.IsContaints == true)
-    {
-        <h3 class="title3">コンテンツ</h3>
-        <div class="sarchArea">
-            @for (int i = 0; i < Model.ContentsMenuList.Length; i++)
-            {
-
-                @Html.ActionLink(Model.ContentsMenuList[i].menu_title, "ChangeView", new { menu_controller = Model.ContentsMenuList[i].menu_controller, menu_action = Model.ContentsMenuList[i].menu_action }, new { @class = "menuBtnInfo" })
-
-
-                if ((i + 1) % 3 == 0)
-                {
-                    <br>
-                    <br>
-                }
-            }
-        </div>
-    }
-
-    <br><br>
 
     @Html.ActionLink("ログアウト", "Logout", null, new { @class = "btnInfo" })
 }

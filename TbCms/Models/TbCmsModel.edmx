@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TbCms.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TbCms.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="l_download">
           <Key>
             <PropertyRef Name="contents_info_id" />
@@ -241,24 +241,6 @@
           <Property Name="paper_name" Type="nvarchar" MaxLength="50" />
           <Property Name="paper_maker_id" Type="smallint" Nullable="false" />
           <Property Name="paper_url" Type="varchar" MaxLength="512" />
-          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
-          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="create_date_time" Type="datetime" Nullable="false" />
-          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="update_function" Type="varchar" MaxLength="50" />
-          <Property Name="update_date_time" Type="datetime" />
-          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
-          <Property Name="delete_function" Type="varchar" MaxLength="50" />
-          <Property Name="delete_date_time" Type="datetime" />
-          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
-        </EntityType>
-        <EntityType Name="m_permission_kinds">
-          <Key>
-            <PropertyRef Name="permission_kind" />
-          </Key>
-          <Property Name="permission_kind" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="permission_kind_name" Type="nvarchar" MaxLength="50" />
-          <Property Name="description" Type="ntext" />
           <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="create_date_time" Type="datetime" Nullable="false" />
@@ -568,6 +550,28 @@
           <Property Name="delete_date_time" Type="datetime" />
           <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="t_news_add__element_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="news_add_order" Type="smallint" Nullable="false" />
+          <Property Name="tag_id" Type="smallint" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="int" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="int" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="int" />
+        </EntityType>
         <EntityType Name="t_news_add_element_tags">
           <Key>
             <PropertyRef Name="news_id" />
@@ -706,7 +710,6 @@
           <EntitySet Name="m_paper_makers" EntityType="Self.m_paper_makers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="m_paper_sizes" EntityType="Self.m_paper_sizes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="m_papers" EntityType="Self.m_papers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="m_permission_kinds" EntityType="Self.m_permission_kinds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="m_permissions" EntityType="Self.m_permissions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="m_roles" EntityType="Self.m_roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="m_system_users" EntityType="Self.m_system_users" Schema="dbo" store:Type="Tables" />
@@ -721,6 +724,7 @@
           <EntitySet Name="t_file_infos" EntityType="Self.t_file_infos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_files" EntityType="Self.t_files" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_news" EntityType="Self.t_news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_add__element_tags" EntityType="Self.t_news_add__element_tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_news_add_element_tags" EntityType="Self.t_news_add_element_tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_news_add_elements" EntityType="Self.t_news_add_elements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_news_add_files" EntityType="Self.t_news_add_files" Schema="dbo" store:Type="Tables" />
@@ -728,7 +732,8 @@
           <EntitySet Name="t_news_tags" EntityType="Self.t_news_tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_paper_size_papers" EntityType="Self.t_paper_size_papers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TbCms.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -999,7 +1004,6 @@
           <Property Name="delete_date_time" Type="DateTime" Precision="3" />
           <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="m_roles" Relationship="TbCms.Models.m_rolesm_permissions" FromRole="m_permissions" ToRole="m_roles" />
-          <NavigationProperty Name="m_permission_kinds" Relationship="TbCms.Models.m_permission_kindsm_permissions" FromRole="m_permissions" ToRole="m_permission_kinds" />
         </EntityType>
         <EntityType Name="m_roles">
           <Key>
@@ -1282,6 +1286,28 @@
           <Property Name="delete_date_time" Type="DateTime" Precision="3" />
           <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="t_news_add__element_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="news_add_order" Type="Int16" Nullable="false" />
+          <Property Name="tag_id" Type="Int16" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="Int32" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="Int32" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="Int32" />
+        </EntityType>
         <EntityType Name="t_news_add_element_tags">
           <Key>
             <PropertyRef Name="news_id" />
@@ -1434,6 +1460,7 @@
           <EntitySet Name="t_file_infos" EntityType="Self.t_file_infos" />
           <EntitySet Name="t_files" EntityType="Self.t_files" />
           <EntitySet Name="t_news" EntityType="Self.t_news" />
+          <EntitySet Name="t_news_add__element_tags" EntityType="Self.t_news_add__element_tags" />
           <EntitySet Name="t_news_add_element_tags" EntityType="Self.t_news_add_element_tags" />
           <EntitySet Name="t_news_add_elements" EntityType="Self.t_news_add_elements" />
           <EntitySet Name="t_news_add_files" EntityType="Self.t_news_add_files" />
@@ -1446,11 +1473,6 @@
           </AssociationSet>
           <AssociationSet Name="m_rolesm_permissions" Association="TbCms.Models.m_rolesm_permissions">
             <End Role="m_roles" EntitySet="m_roles" />
-            <End Role="m_permissions" EntitySet="m_permissions" />
-          </AssociationSet>
-          <EntitySet Name="m_permission_kinds" EntityType="TbCms.Models.m_permission_kinds" />
-          <AssociationSet Name="m_permission_kindsm_permissions" Association="TbCms.Models.m_permission_kindsm_permissions">
-            <End Role="m_permission_kinds" EntitySet="m_permission_kinds" />
             <End Role="m_permissions" EntitySet="m_permissions" />
           </AssociationSet>
         </EntityContainer>
@@ -1475,37 +1497,6 @@
             </Principal>
             <Dependent Role="m_permissions">
               <PropertyRef Name="role_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="m_permission_kinds">
-          <Key>
-            <PropertyRef Name="permission_kind" />
-          </Key>
-          <Property Name="permission_kind" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="permission_kind_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="delete_state" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="create_function" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="create_user" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="update_date_time" Type="DateTime" Precision="3" />
-          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
-          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="m_permissions" Relationship="TbCms.Models.m_permission_kindsm_permissions" FromRole="m_permission_kinds" ToRole="m_permissions" />
-        </EntityType>
-        <Association Name="m_permission_kindsm_permissions">
-          <End Type="TbCms.Models.m_permission_kinds" Role="m_permission_kinds" Multiplicity="1" />
-          <End Type="TbCms.Models.m_permissions" Role="m_permissions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="m_permission_kinds">
-              <PropertyRef Name="permission_kind" />
-            </Principal>
-            <Dependent Role="m_permissions">
-              <PropertyRef Name="permission_kind" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2073,6 +2064,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="t_news_add__element_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_add__element_tags">
+              <MappingFragment StoreEntitySet="t_news_add__element_tags">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="news_add_order" ColumnName="news_add_order" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="t_news_add_element_tags">
             <EntityTypeMapping TypeName="TbCms.Models.t_news_add_element_tags">
               <MappingFragment StoreEntitySet="t_news_add_element_tags">
@@ -2190,25 +2201,6 @@
                 <ScalarProperty Name="delete_function" ColumnName="delete_function" />
                 <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
                 <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="m_permission_kinds">
-            <EntityTypeMapping TypeName="TbCms.Models.m_permission_kinds">
-              <MappingFragment StoreEntitySet="m_permission_kinds">
-                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
-                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
-                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
-                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
-                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
-                <ScalarProperty Name="update_function" ColumnName="update_function" />
-                <ScalarProperty Name="create_user" ColumnName="create_user" />
-                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
-                <ScalarProperty Name="create_function" ColumnName="create_function" />
-                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="permission_kind_name" ColumnName="permission_kind_name" />
-                <ScalarProperty Name="permission_kind" ColumnName="permission_kind" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

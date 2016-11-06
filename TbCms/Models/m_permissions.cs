@@ -30,6 +30,5 @@ namespace TbCms.Models
         public string delete_system_user { get; set; }
     
         public virtual m_roles m_roles { get; set; }
-        public virtual m_permission_kinds m_permission_kinds { get; set; }
     }
 }
