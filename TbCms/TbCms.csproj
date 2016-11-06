@@ -287,6 +287,7 @@
     <Compile Include="Models\Repository\IMenuRepository.cs" />
     <Compile Include="Models\Repository\ISystemUserRepository.cs" />
     <Compile Include="Models\Repository\LoginRepository.cs" />
+    <Compile Include="Models\Repository\news.cs" />
     <Compile Include="Models\Repository\SystemUserRepository.cs" />
     <Compile Include="Models\SystemUser\SystemUserInputViewModel.cs" />
     <Compile Include="Models\SystemUser\SystemUserListViewModel.cs" />
