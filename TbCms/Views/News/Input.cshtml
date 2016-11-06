@@ -1,0 +1,481 @@
+﻿@{
+    ViewBag.Title = "記事入力";
+}
+
+<link href="~/Content/News.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    function ChangeTab(tabname) {
+        // タブメニュー実装
+        document.getElementById('tab1').style.display = 'none';
+        document.getElementById('tab2').style.display = 'none';
+        // タブメニュー実装
+        document.getElementById(tabname).style.display = 'block';
+    }
+
+    // 要素の追加.
+    function AddClick() {
+
+        try {
+
+            tagName = "addElement";
+
+            tagText = '<div class="addElement" id="addElement"><select class="dropdown" name ="[0].category" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" name ="[0].value" value="" style="width: 70%;" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button></div>'
+
+            $('button.add').before(tagText);
+
+            SetValueName();
+
+            // 追加した項目の要素の数を取得する.
+            len = $("select").size();
+
+            if (len == 1) {
+
+                // 1つのみの追加の場合はなにも行わない.
+
+            } else if (len == 2) {
+                divName = 'div[id=addElement1]';
+
+                addText = '<button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>';
+
+                $(divName).append(addText);
+
+                divName = 'div[id=addElement2]';
+
+                addText = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button>';
+
+                $(divName).append(addText);
+            } else {
+
+                numStr = String(len - 1);
+
+                divName = 'div[id=addElement' + numStr + ']';
+
+                addText = '<button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>';
+
+                $(divName).append(addText);
+
+                numStr = String(len);
+
+                divName = 'div[id=addElement' + numStr + ']';
+
+                addText = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up" onclick="UpElement(this)"></span></button>';
+
+                $(divName).append(addText);
+            };
+
+        } catch (ex) {
+
+        };
+
+    }
+
+    // 項目の選択変更.
+    function SelectChange(obj) {
+
+        selectValue = obj.options[obj.options.selectedIndex].text;
+
+        divObj = obj.parentElement;
+
+        index = 0;
+
+        // 追加項目の何番目の項目か調べる.
+        $("div.addElement").each(function (i, elem) {
+            if (elem.id == divObj.id) {
+                index = i;
+            }
+        });
+
+        // 追加項目の全体の数を取得.
+        len = $("div.addElement").size();
+
+        arrowTag = '';
+
+        // 1以上追加があった場合は矢印ボタンを入れる.
+        if (len != 1) {
+
+            if (index == 0) {
+                // 下ボタン表示.
+                arrowTag = '<button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>';
+            } else if (index == len - 1) {
+                // 上ボタン表示.
+                arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button>';
+            } else {
+                // 上下ボタン表示.
+                arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>'
+            }
+
+        }
+
+        // 選択された項目を表示.
+        switch (selectValue) {
+            case '中見出し':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case '小見出し':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "小見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case '本文テキスト':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "本文テキスト"){<option selected>@item</option>}else{<option>@item</option>}}</select><textarea rows="7" class="addElementTextArea"></textarea><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case 'イメージ':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "イメージ"){<option selected>@item</option>}else{<option>@item</option>}}</select><button type="submit" class="addElementMedia"><span class="glyphicon glyphicon-cog"></span> メディアを追加</button><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>'
+                break;
+            case 'リンク':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "リンク"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 70%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><br /><input type="text" class="addElementText" value="" style="margin-left: 19%;" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case 'コンテンツ':
+                tagtext = '<div class="addElement" id ="changeElement" style="clear:both;"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "コンテンツ"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 10%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '<br><input type="radio" class = "dispRadio" name = "radio1" value="プレビュー画像表示" style="margin-left: 19%;margin-Top: 5px;" checked>プレビュー画像表示<input type="radio" class = "dispRadio" name = "radio1" value="リンクのみ表示">リンクのみ表示</div>';
+                break;
+            case 'カテゴリ':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "カテゴリ"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 10%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '<br ><input type="radio" class = "dispRadio" name = "radio2" value="プレビュー画像表示" style="margin-left: 19%;margin-Top: 5px;" checked>プレビュー画像表示<input type="radio" class = "dispRadio" name = "radio2" value="リンクのみ表示" >リンクのみ表示</div>';
+                break;
+            case '人気書式':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "人気書式"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 10%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case 'おすすめ記事':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "おすすめ記事"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 10%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            case 'タグ':
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "タグ"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" style="width: 70%;" /><button type="submit" class="addElementBtn"><span class="glyphicon glyphicon-plus"></span>追加</button><br /><input type="text" class="addElementText" value="" style="margin-left: 19%;" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+                break;
+            default:
+                tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+        }
+
+        parentDiv = 'div[id=' + divObj.id + ']';
+
+        $(parentDiv).before(tagtext);
+        $(parentDiv).remove();
+
+        changeElement = document.getElementById("changeElement");
+        changeElement.id = divObj.id
+    }
+
+    function DeleteElement(obj) {
+
+        divObj = obj.parentElement;
+
+        index = 0;
+
+        // 追加項目の何番目の項目か調べる.
+        $("div.addElement").each(function (i, elem) {
+            if (elem.id == divObj.id) {
+                index = i;
+            }
+        });
+
+        // 追加項目の全体の数を取得.
+        len = $("div.addElement").size();
+
+        parentDiv = 'div[id=' + divObj.id + ']';
+        $(parentDiv).remove();
+
+
+
+    }
+
+    function SetValueName() {
+
+        $(document).ready(function () {
+            $("div.addElement").each(function (index, elem) {
+                $(elem).attr("id", "addElement" + (index + 1));
+                dropDown = elem.getElementsByClassName("dropdown");
+                $(dropDown).attr("name", "[" + (index) + "].category");
+                addElementText = elem.getElementsByClassName("addElementText");
+
+                size = addElementText.length;
+                if (size == 1) {
+                    $(addElementText).attr("name", "[" + (index) + "].value");
+                }
+            });
+        });
+
+    }
+
+    //要素を入れ替える.
+    function DownElement(obj) {
+
+        divObj = obj.parentElement;
+
+        len = $("div.addElement").size();
+
+        index = 0;
+
+        // 追加項目の何番目の項目か調べる.
+        $("div.addElement").each(function (i, elem) {
+            if (elem.id == divObj.id) {
+                index = i;
+            }
+        });
+
+        num = index + 2
+
+        changeId = '#addElement' + String(num) + ' > select';
+        objId = '#' + divObj.id + ' > select';
+
+        objHttp = $(objId);
+        changeHttp = $(changeId);
+
+        objSelectValue = objHttp[0].options[objHttp[0].options.selectedIndex].text;
+
+        changeSelectValue = changeHttp[0].options[changeHttp[0].options.selectedIndex].text;
+
+        if (index == len - 2) {
+
+            // 上ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button>';
+
+        } else {
+
+            // 上下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>'
+
+        }
+
+        if (objSelectValue == '中見出し') {
+
+            objId = '#' + divObj.id + ' > input';
+            objHttp = $(objId);
+
+            objValue = objHttp[0].value;
+
+            tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="' + objValue + '" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+
+            objId = '#' + divObj.id;
+            changeId = '#addElement' + String(num);
+
+            $(changeId).after(tagtext);
+            $(objId).remove();
+
+            changeElement = document.getElementById("changeElement");
+            changeElement.id = divObj.id
+        }
+
+        if (index == 0) {
+
+            // 下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>';
+
+        } else {
+
+            // 上下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>'
+
+        }
+
+        if (changeSelectValue == '中見出し') {
+
+            changeId = '#addElement' + String(num) + ' > input';
+            changeHttp = $(changeId);
+
+            objValue = changeHttp[0].value;
+
+            tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="' + objValue + '" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+
+            objId = '#' + divObj.id;
+            changeId = '#addElement' + String(num);
+
+            $(changeId).after(tagtext);
+            $(changeId).remove();
+
+            changeElement = document.getElementById("changeElement");
+            changeElement.id = 'addElement' + String(num)
+        }
+
+        SetValueName();
+
+    }
+
+    // 要素を入れ替える.
+    function UpElement(obj) {
+
+        divObj = obj.parentElement;
+
+        len = $("div.addElement").size();
+
+        index = 0;
+
+        // 追加項目の何番目の項目か調べる.
+        $("div.addElement").each(function (i, elem) {
+            if (elem.id == divObj.id) {
+                index = i;
+            }
+        });
+
+        changeId = '#addElement' + String(index) + ' > select';
+        objId = '#' + divObj.id + ' > select';
+
+        objHttp = $(objId);
+        changeHttp = $(changeId);
+
+        objSelectValue = objHttp[0].options[objHttp[0].options.selectedIndex].text;
+
+        changeSelectValue = changeHttp[0].options[changeHttp[0].options.selectedIndex].text;
+
+        if (index == 1) {
+
+            // 下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>';
+
+        } else {
+
+            // 上下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>'
+
+        }
+
+        if (objSelectValue == '中見出し') {
+
+            objId = '#' + divObj.id + ' > input';
+            objHttp = $(objId);
+
+            objValue = objHttp[0].value;
+
+            tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="' + objValue + '" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+
+            objId = '#' + divObj.id;
+            changeId = '#addElement' + String(index);
+
+            $(changeId).before(tagtext);
+            $(objId).remove();
+
+            changeElement = document.getElementById("changeElement");
+            changeElement.id = divObj.id
+        }
+
+        if (index == len - 1) {
+
+            // 上ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button>';
+
+        } else {
+
+            // 上下ボタン.
+            arrowTag = '<button type="button" class="arrowBtn" onclick="UpElement(this)"><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="arrowBtn" onclick="DownElement(this)"><span class="glyphicon glyphicon-arrow-down"></span></button>'
+
+        }
+
+        if (changeSelectValue == '中見出し') {
+
+            changeId = '#addElement' + String(index) + ' > input';
+            changeHttp = $(changeId);
+
+            objValue = changeHttp[0].value;
+
+            tagtext = '<div class="addElement" id ="changeElement"><select class="dropdown" onchange="SelectChange(this)">@foreach (var item in ViewBag.ItemList){if (item == "中見出し"){<option selected>@item</option>}else{<option>@item</option>}}</select><input type="text" class="addElementText" value="' + objValue + '" /><button type="button" class="deleteButton" onclick="DeleteElement(this)"><span class="glyphicon glyphicon-minus"></span></button>' + arrowTag + '</div>';
+
+            objId = '#' + divObj.id;
+            changeId = '#addElement' + String(index);
+
+            $(changeId).before(tagtext);
+            $(changeId).remove();
+
+            changeElement = document.getElementById("changeElement");
+            changeElement.id = 'addElement' + String(index)
+        }
+
+        SetValueName();
+    }
+
+</script>
+
+<form action="EntryNews">
+
+    <div>
+        <label>記事タイトル</label><br />
+        <input type="text" class="text" value="" />
+    </div>
+
+    <div>
+        <label>ページ説明</label><br />
+        <input type="text" class="text" value="" />
+    </div>
+
+    <div>
+        <label>キーワード</label><br />
+        <input type="text" class="text" value="" />
+    </div>
+
+    <div>
+        <label>説明文</label><br />
+        <textarea rows="7" name="comments1" id="comments"></textarea>
+    </div>
+
+    <div class="honbun">
+        <label>大見出し</label><br />
+        <input type="text" class="text" value="" />
+    </div>
+
+    <div>
+        <button type="submit" class="addMedia">
+            <span class="glyphicon glyphicon-cog"></span> メディアを追加
+        </button>
+    </div>
+
+    <div class="tabbox">
+        <label>本文</label><br />
+        <p class="tabs">
+            <a href="#tab1" class="tab1" onclick="ChangeTab('tab1'); return false;">テキスト</a>
+            <a href="#tab2" class="tab2" onclick="ChangeTab('tab2'); return false;">ビジュアル</a>
+        </p>
+        <div id="tab1" class="tab">
+            <button type="button" class="tabBtn">b</button>
+            <button type="button" class="tabBtn">i</button>
+            <button type="button" class="tabBtn">link</button>
+            <button type="button" class="tabBtn">del</button>
+            <button type="button" class="tabBtn">ins</button>
+            <button type="button" class="tabBtn">img</button>
+            <button type="button" class="tabBtn">ul</button>
+            <button type="button" class="tabBtn">ol</button>
+            <button type="button" class="tabBtn">li</button>
+            <button type="button" class="tabBtn">code</button>
+            <button type="button" class="tabBtn">more</button>
+            <button type="button" class="tabBtn">タブを閉じる</button><br />
+            <div2><textarea rows="7" name="comments" id="comments"></textarea></div2>
+        </div>
+        <div id="tab2" class="tab">
+            <button type="button" class="tabBtn"><span class="glyphicon glyphicon-bold"></span></button>
+            <button type="button" class="tabBtn"><span class="glyphicon glyphicon-italic"></span></button>
+            <button type="button" class="tabBtn">link</button>
+            <button type="button" class="tabBtn">del</button>
+            <button type="button" class="tabBtn">ins</button>
+            <button type="button" class="tabBtn">img</button>
+            <button type="button" class="tabBtn">ul</button>
+            <button type="button" class="tabBtn">ol</button>
+            <button type="button" class="tabBtn">li</button>
+            <button type="button" class="tabBtn">code</button>
+            <button type="button" class="tabBtn">more</button>
+            <div2><textarea rows="7" name="comments" id="comments"></textarea></div2>
+        </div>
+    </div>
+
+    <div>
+        <label>公開設定</label><br />
+        <input type="text" class="text" value=@DateTime.Today id="datepicker1" style="width: 10%;" /><br />
+        <input type="radio" name="radioOpenKind" value="公開" checked>公開
+        <input type="radio" name="radioOpenKind" value="期間限定公開">期間限定公開
+        <input type="radio" name="radioOpenKind" value="非公開">非公開
+    </div>
+
+    <div>
+        <button type="button" class="add" onclick="AddClick()">
+            <span class="glyphicon glyphicon-plus"></span>追加
+        </button>
+    </div><br />
+
+    <div>
+        <button type="submit" class="back">
+            <span class="glyphicon  glyphicon-circle-arrow-left"></span> 戻る
+        </button>
+        <button type="submit" class="entry">
+            <span class="glyphicon glyphicon-pencil"></span> 登録
+        </button>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+   ChangeTab('tab1');
+</script>

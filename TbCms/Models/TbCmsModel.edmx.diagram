@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="169c9d37681347138c019e691d861bcb" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="TbCms.Models.l_download" Width="1.5" PointX="9.625" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_businesses" Width="1.5" PointX="18.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_categories" Width="1.5" PointX="12" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_creators" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_file_kinds" Width="1.5" PointX="7.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_keywords" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_menus" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_news_elements" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_occupations" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_paper_makers" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_paper_sizes" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_papers" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_permissions" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_roles" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_system_users" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.m_tags" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_category_files" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_category_tags" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_contents" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_contents_files" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_contents_info_tags" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_contents_infos" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_contents_reviews" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_file_infos" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_files" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news_add_element_tags" Width="2.75" PointX="6.125" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news_add_elements" Width="2.875" PointX="8.625" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news_add_files" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news_files" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_news_tags" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TbCms.Models.t_paper_size_papers" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TbCms.Models.m_system_usersm_roles" />
+        <AssociationConnector Association="TbCms.Models.m_rolesm_permissions" />
+        <EntityTypeShape EntityType="TbCms.Models.m_permission_kinds" Width="1.5" PointX="6.125" PointY="0.5" />
+        <AssociationConnector Association="TbCms.Models.m_permission_kindsm_permissions" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

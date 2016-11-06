@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/MasterEdit.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>職種情報編集</title>
+</head>
+<form>
+
+    <h1 class="title1">職種情報編集</h1>
+
+    <button id="deleteBtn" class="btnInfo" style="margin-left:1148px">削除</button>
+    <div>
+        <label class="label1">職種ID</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="text" class="text_s" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+        <br />
+        <br />
+        <br />
+    </div>
+    <div>
+        <label class="label1">職種名</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="text" class="text_s" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+        <br />
+        <br />
+        <br />
+    </div>
+    <div>
+        <label class="label1">説明</label><br />
+        <br />
+        <textarea class="text" rows="3" wrap="soft"></textarea>
+        <br />
+        <br />
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">削除状態</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="radio" name="level" style="margin-left:20px">通常
+        <input type="radio" name="level" style="margin-left:20px">仮削除
+        <input type="radio" name="level" style="margin-left:20px">削除
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+    </div>
+    <button id="backBtn" class="btnInfo">戻る</button><button id="updateBtn" class="btnInfo">登録</button>
+    <div>
+        <br />
+    </div>
+
+    <div>
+        <asp:XmlDataSource ID="productsDataSource"
+                           Runat="server" DataFile="~/AppData/UserInfo.xml">
+        </asp:XmlDataSource>
+        <asp:GridView ID="GridView1" Runat="server"
+                      DataSourceID="productsDataSource"
+                      AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField HeaderText="ProductID"
+                                DataField="ProductID" SortExpression="ProductID">
+                </asp:BoundField>
+                <asp:BoundField HeaderText="ProductName"
+                                DataField="ProductName"
+                                SortExpression="ProductName">
+                </asp:BoundField>
+                <asp:BoundField HeaderText="QuantityPerUnit"
+                                DataField="QuantityPerUnit"
+                                SortExpression="QuantityPerUnit"></asp:BoundField>
+                <asp:BoundField HeaderText="UnitPrice"
+                                DataField="UnitPrice"
+                                SortExpression="UnitPrice"></asp:BoundField>
+                <asp:BoundField HeaderText="UnitsInStock"
+                                DataField="UnitsInStock"
+                                SortExpression="UnitsInStock"></asp:BoundField>
+            </Columns>
+        </asp:GridView>
+
+    </div>
+
+</form>
+</html>

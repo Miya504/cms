@@ -1,0 +1,202 @@
+﻿@model TbCms.Models.CategoryListViewModel
+
+@{
+    ViewBag.Title = "カテゴリマスタ一覧";
+}
+
+@Styles.Render("~/Content/MasterList.css")
+
+
+
+<!DOCTYPE html>
+<link href="~/Content/MasterView.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>カテゴリマスタ一覧</title>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="~/DatePicker.css">
+
+    <script>
+        //カレンダーピッカー設定
+      $(function() {
+          $("#datepicker1").datepicker();
+          $("#datepicker1").datepicker("option", "showOn", 'button');
+
+          $("#datepicker2").datepicker();
+          $("#datepicker2").datepicker("option", "showOn", 'button');
+
+          $("#datepicker3").datepicker();
+          $("#datepicker3").datepicker("option", "showOn", 'button');
+
+          $("#datepicker4").datepicker();
+          $("#datepicker4").datepicker("option", "showOn", 'button');
+
+          $(".ui-datepicker-trigger").text("日付");
+
+      });
+    </script>
+
+
+    <script type="text/javascript">
+    function openWindow(){
+        window.open("ReferencePage", "", "width=500,height=400");
+    }
+
+    </script>
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+          <form>
+            <h1 class="title1">カテゴリマスタ一覧</h1>
+            <h2 class="title3">検索条件</h2>
+            <div class="sarchArea">
+
+                <!-- カテゴリID -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.category_id)
+                    @Html.TextBoxFor(m => m.category_id, new { @class = "search" })
+                    <button class="btnInfo" style="margin-left:20px">参照</button>
+                </div>
+                <br />
+
+                <!-- カテゴリ名 -->
+
+                <!-- 公開種別 -->
+                <label class="label2">公開種別</label><br />
+
+                <div class="deleteArea" style="margin-left:20px">
+                    <!-- チェックボックス：公開 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.publicOpenKind)
+                        @Html.LabelFor(m => m.publicOpenKind)
+                    </div>
+
+                    <!-- チェックボックス：期間公開 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.limitedOpenKind, new { id = "limitedOpen" })
+                        @Html.LabelFor(m => m.limitedOpenKind)
+                    </div>
+
+                    <!-- チェックボックス：非公開 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.privateOpenKind)
+                        @Html.LabelFor(m => m.privateOpenKind)
+                    </div>
+                </div>
+
+                <!-- 公開開始日 -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.openStartDateStart)
+                    @Html.TextBoxFor(m => m.openStartDateStart, new { @class = "search" })
+                    <button class="btnInfo" style="margin-left:20px"　id="datepicker1">日付</button>
+
+                    <label class="label2">　～　</label>
+
+                    @Html.TextBoxFor(m => m.openStartDateEnd, new { @class = "search" })
+                    <button class="btnInfo" style="margin-left:20px" 　id="datepicker1">日付</button>
+                </div>
+                <br />
+
+                <!-- 公開開始日 -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.openEndDateStart)
+                    @Html.TextBoxFor(m => m.openEndDateEnd, new { @class = "search" })
+                    <button class="btnInfo" style="margin-left:20px" 　id="datepicker1">日付</button>
+
+                    <label class="label2">　～　</label>
+
+                    @Html.TextBoxFor(m => m.openEndDateEnd, new { @class = "search" })
+                    <button class="btnInfo" style="margin-left:20px" 　id="datepicker1">日付</button>
+                </div>
+                <br />
+
+                <!-- 表示範囲 -->
+                <label class="label2">表示範囲</label><br />
+
+                <div class="deleteArea" style="margin-left:20px">
+                    <!-- チェックボックス：通常 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.ChkNormal)
+                        @Html.LabelFor(m => m.ChkNormal)
+                    </div>
+
+                    <!-- チェックボックス：仮削除 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.ChkTempDel)
+                        @Html.LabelFor(m => m.ChkTempDel)
+
+                    </div>
+
+                    <!-- チェックボックス：削除 -->
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.ChkDelete)
+                        @Html.LabelFor(m => m.ChkDelete)
+                    </div>
+                </div>
+
+                <!-- 検索ボタン  -->
+                <input type="submit" value="検索" class="btn btn-serch" />
+
+                
+            </div>
+
+              <br>
+              <h2 class="title3">カテゴリ一覧</h2>
+              <div>
+                  <table class="table">
+
+                      <tr>
+                          <td class="firstLine"><label></label></td>
+                          <td class="firstLine"><label>カテゴリ名</label></td>
+                          <td class="firstLine"><label>親カテゴリ名</label></td>
+                          <td class="firstLine"><label>テーマカラー</label></td>
+                          <td class="firstLine"><label>説明</label></td>
+                          <td class="firstLine"><label>公開種別</label></td>
+                          <td class="firstLine"><label>公開開始日</label></td>
+                          <td class="firstLine"><label>公開終了日</label></td>
+                          <td class="firstLine"><label>削除状態</label></td>
+                      </tr>
+
+
+                      @foreach (var user in Model.TableList)
+                     {
+                          <tr>
+                              <td>@Html.ActionLink("編集", "Edit", new { id = user.category_id })</td>
+                              <td>@Html.ActionLink("削除", "Edit", new { id = user.category_id })</td>
+                              <td>@Html.DisplayFor(modelItem => user.category_name)</td>
+                              <td>@Html.DisplayFor(modelItem => user.parent_category_name)</td>
+                              <td>@Html.DisplayFor(modelItem => user.theme_color)</td>
+                              <td>@Html.DisplayFor(modelItem => user.description)</td>
+                              <td>@Html.DisplayFor(modelItem => user.open_kind)</td>
+                              <td>@Html.DisplayFor(modelItem => user.open_start)</td>
+                              <td>@Html.DisplayFor(modelItem => user.open_end)</td>
+                              <td>@Html.DisplayFor(modelItem => user.delete_state)</td>
+                          </tr>
+                      }
+                      
+
+                  </table>
+
+              </div>
+              <br>
+              <div>
+                  <br>
+                  <button class="btnInfo">戻る</button>
+                  @Html.ActionLink("新規", "New", new { id = 0 }, new { @class = "btnInfo" })
+                  <br>
+              </div>
+
+            <div>
+                <br>
+            </div>
+        </form>
+    }
+    </body>
+</html>

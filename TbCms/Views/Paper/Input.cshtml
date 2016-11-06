@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/MasterEdit.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SheetMasterEdit</title>
+</head>
+<body>
+    <form>
+
+        <h1 class="title1">用紙情報編集</h1>
+
+        <button id="deleteBtn" class="btnInfo">削除</button>
+        <div>
+            <label class="label1">用紙ID</label><label class="exlist">（※）</label><br />
+            <br />
+            <input type="text" class="text_s" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+            <br />
+            <br />
+            <br />
+        </div>
+        <div>
+            <label class="label1">用紙名</label><br />
+            <br />
+            <input type="text" class="text_s" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+            <br />
+            <br />
+            <br />
+        </div>
+        <div>
+            <label class="label1">用紙メーカーID</label><label class="exlist">（※）</label><br />
+            <br />
+            <input type="text" class="text_s" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+            <br />
+            <br />
+            <br />
+        </div>
+        <div>
+            <label class="label1">用紙HPURL</label><br />
+            <br />
+            <input type="text" class="text" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+            <br />
+            <br />
+            <br />
+        </div>
+        <br />
+        <div>
+            <label class="label1">削除状態</label><br />
+            <br />
+            <input type="radio" name="level" style="margin-left:20px" checked>通常
+            <input type="radio" name="level" style="margin-left:20px">仮削除
+            <input type="radio" name="level" style="margin-left:20px">削除
+        </div>
+        <div>
+            <br />
+            <br />
+            <br />
+        </div>
+        <button id="backBtn" class="btnInfo">戻る</button>
+        <button id="updateBtn" class="btnInfo">登録</button>
+        <div>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,99 @@
+﻿@model TbCms.Models.SystemUserListViewModel
+
+@{
+    ViewBag.Title = "このサイトについて";
+}
+
+@Styles.Render("~/Content/MasterList.css")
+
+<!DOCTYPE html>
+<link href="~/MasterView.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SystemUserMaster</title>
+</head>
+<body>
+@using (Html.BeginForm())
+{
+
+    <form>
+        <h1 class="title1">システムユーザーマスタ一覧</h1>
+        <h2 class="title3">検索条件</h2>
+        <div class="sarchArea">
+
+            <!-- 名前 -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.system_user_name)
+                @Html.TextBoxFor(m => m.system_user_name, new { @class = "search" })
+                <button class="btnInfo" style="margin-left:20px">参照</button>
+            </div>
+            <br />
+
+            <label class="label2">表示範囲</label><br />
+
+            <div class="deleteArea" style="margin-left:20px">
+                <!-- チェックボックス：通常 -->
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.ChkNormal)
+                    @Html.LabelFor(m => m.ChkNormal)
+                </div>
+
+                <!-- チェックボックス：仮削除 -->
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.ChkTempDel)
+                    @Html.LabelFor(m => m.ChkTempDel)
+                </div>
+                
+                <!-- チェックボックス：削除 -->
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.ChkDelete)
+                    @Html.LabelFor(m => m.ChkDelete)
+                </div>
+            </div>
+            
+            <input type="submit" value="検索" class="btn btn-serch" />
+
+        </div>
+        <br>
+        <h2 class="title3">システムユーザー一覧</h2>
+        <div>          
+            <table class="table">
+
+                <tr>
+                    <td class="firstLine"><label></label></td>
+                    <td class="firstLine"><label>名前</label></td>
+                    <td class="firstLine"><label>ロール名</label></td>
+                    <td class="firstLine"><label>メールアドレス</label></td>
+                    <td class="firstLine"><label>パスワード</label></td>
+                </tr>
+
+                @foreach (var user in Model.TableList)
+                {
+                    <tr>
+                        <td>@Html.ActionLink("Edit", "Edit", new { id = user.system_user_id })</td>
+                        <td>@Html.DisplayFor(modelItem => user.system_user_name)</td>
+                        <td>@Html.DisplayFor(modelItem => user.role_name)</td>
+                        <td>@Html.DisplayFor(modelItem => user.mail_address)</td>
+                        <td>@Html.DisplayFor(modelItem => user.password)</td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+        <br>
+        <div>
+            <br>
+            <button class="btnInfo">戻る</button>
+            @Html.ActionLink("新規", "New", new { id = 0 }, new { @class = "btnInfo" })
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+    </form>
+
+}
+</body>
+</html>

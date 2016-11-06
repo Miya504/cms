@@ -1,0 +1,93 @@
+﻿@model TbCms.Models.SystemUserInputViewModel
+
+@{
+    ViewBag.Title = "このサイトについて";
+}
+
+@Styles.Render("~/Content/MasterEdit.css")
+
+@using (Html.BeginForm())
+{
+
+    <form>
+
+        <h1 class="title1">システムユーザー情報編集</h1>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <button id="deleteBtn" class="btnInfo">削除</button>
+
+        <div>
+            <!-- システムユーザID -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.system_user_id)
+                @Html.TextBoxFor(m => m.system_user_id, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.system_user_id, "", new { @class = "text-denger" })
+            </div>
+            <br />
+        </div>
+
+        <div>
+            <!-- 名前 -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.system_user_name)
+                @Html.TextBoxFor(m => m.system_user_name, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.system_user_name, "", new { @class = "text-denger" })
+            </div>
+            <br />
+        </div>
+
+        <div>
+            <!-- ロールID -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.role_id)
+                @Html.TextBoxFor(m => m.role_id, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.role_id, "", new { @class = "text-denger" })
+                <button class="btnInfo" style="margin-left:20px">参照</button>
+            </div>
+            <br />
+        </div>
+        
+        <div>
+            <!-- メールアドレス -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.mail_address)
+                @Html.TextBoxFor(m => m.mail_address, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.mail_address, "", new { @class = "text-denger" })
+            </div>
+            <br />
+        </div>
+
+        <div>
+            <!-- パスワード -->
+            <div class="form-group">
+                @Html.LabelFor(m => m.password)
+                @Html.TextBoxFor(m => m.password, new { @class = "search" })
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-denger" })
+            </div>
+            <br />
+        </div>
+
+        <br />
+        <div>
+            <!-- 削除状態 -->
+            <label class="label1">削除状態</label><br />
+            <br />
+            @Html.RadioButtonFor(m => m.delete_state, "0", new { @id = "red-radio" }) 通常
+            @Html.RadioButtonFor(m => m.delete_state, "1", new { @id = "red-2" }) 仮削除
+            @Html.RadioButtonFor(m => m.delete_state, "2", new { @id = "red-3" }) 削除
+        </div>
+        <div>
+            <br />
+        </div>
+        <button id="backBtn" class="btnInfo">戻る</button>
+        <input type="submit" value="登録" class="btn btn-registration" />
+        <div>
+            <br />
+        </div>
+    </form>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

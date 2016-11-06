@@ -1,0 +1,143 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/MasterEdit.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>カテゴリ編集</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="~/DatePicker.css">
+    <script>
+      $(function() {
+          $("#datepicker1").datepicker();
+          $("#datepicker1").datepicker("option", "showOn", 'button');
+
+          $("#datepicker2").datepicker();
+          $("#datepicker2").datepicker("option", "showOn", 'button');
+
+          $(".ui-datepicker-trigger").text("日付");
+      });
+    </script>
+
+    <script type="text/javascript">
+    function alertValue(colorhex){
+        document.getElementById('sColor').style.backgroundColor = colorhex;
+    }
+
+    </script>
+
+</head>
+<form>
+
+    <h1 class="title1">カテゴリ情報編集</h1>
+
+    <button id="deleteBtn" class="btnInfo">削除</button>
+    <div>
+        <label class="label1">カテゴリID</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="text" class="textbox_category_id" disabled="disabled" value="" />
+        <br />
+        <br />
+    </div>
+    <div>
+        <label class="label1">カテゴリ名</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="text" class="textbox_category_name" value="" />
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">親カテゴリID</label><br />
+        <br />
+        <input type="text" class="textbox_parent_category_id" value="" /><br />
+        <br />
+        <input type="text" class="textbox_parent_category_name" value="" /> <button class="btnInfo" style="margin-left:20px">参照</button>
+        <br />
+    </div>
+    <br />
+    <div class="divLeft" style="float:left;">
+        <label class="label1">テーマカラー</label><br />
+        <br />
+        <input type="text" class="textbox_theme_color" onchange="alertValue(this.value)" />
+    </div>
+    <div class="divRifht" style="float:left;">
+        <table border="1" rules="all" style="margin-top:47px; height:25px;">
+            <tr>
+                <td class="sampleColor" id="sColor"></td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear:both;">
+    </div>
+    <div>
+        <label class="label1">説明</label><br />
+        <br />
+        <textarea class="textbox_description"  rows="3" value=""></textarea>
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">詳細内容</label><br />
+        <br />
+        <textarea class="textbox_category_text"  rows="5" value=""></textarea>
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">表示順</label><br />
+        <br />
+        <input type="text" class="textbox_view_order" value="" />
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">公開種別</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="radio" name="open" style="margin-left:20px"  checked>公開
+        <input type="radio" name="open" style="margin-left:20px">期間公開
+        <input type="radio" name="open" style="margin-left:20px">非公開
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">公開開始日</label><br />
+        <br />
+        <input type="text" class="textbox_open_start" style="margin-left:20px" id="datepicker1">
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">公開終了日</label><br />
+        <br />
+        <input type="text" class="textbox_open_end" style="margin-left:20px" id="datepicker2">
+        <br />
+    </div>
+    <br />
+    <div>
+        <label class="label1">削除状態</label><label class="exlist">（※）</label><br />
+        <br />
+        <input type="radio" name="level" style="margin-left:20px"  checked>通常
+        <input type="radio" name="level" style="margin-left:20px">仮削除
+        <input type="radio" name="level" style="margin-left:20px">削除
+    </div>
+    <div>
+        <br />
+    </div>
+    <button id="backBtn" class="btnInfo">戻る</button>
+    <button id="updateBtn" class="btnInfo">登録</button>
+    <div>
+        <br />
+    </div>
+</form>
+<body>
+    <div>
+    </div>
+</body>
+</html>

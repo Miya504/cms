@@ -1,0 +1,113 @@
+/* --------------------
+標準タグの上書き
+-------------------- */
+ul li {
+    list-style: none;
+}
+
+body{
+    background: #eee;
+    font-size: 14px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form{
+}
+
+h1{
+    padding: 10px 0px 00px 20px;
+    font-size: 30px;
+}
+
+h2{
+}
+
+h3{
+}
+
+
+/* --------------------
+基底クラス
+-------------------- */
+.validation {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.li {
+    margin-bottom: 5px;
+}
+
+.button {
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+    width: 100px;
+}
+
+.label {
+    margin-right: 10px;
+    color: #000000;
+    width: 200px;
+    float: left;
+    font-weight: bold;
+}
+
+.label-supplemental {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.textbox {
+    width: 300px;
+}
+
+.password {
+    width: 300px;
+}
+
+.check-box {
+    float: left;
+    padding-right: 5px;
+}
+
+/* --------------------
+Button派生クラス
+-------------------- */
+/* ログイン画面 */
+.loginButton {
+    display: block;
+    margin-left: auto;
+}
+
+/* --------------------
+ul派生クラス
+-------------------- */
+/* ログイン画面 */
+.ul-login {
+    height: 200px;
+    width: 515px;
+    padding: 20px 24px 24px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+/* --------------------
+ll派生クラス
+-------------------- */
+/* ログイン画面 */
+.li-login {
+    margin-bottom: 14px;
+}
+
+/* --------------------
+div派生クラス
+-------------------- */
+/* ログイン画面 */
+.div-login {
+    width: 300px;
+    margin: 0 auto;
+}

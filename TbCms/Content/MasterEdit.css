@@ -1,0 +1,195 @@
+﻿form{
+    background: #eee;
+    width:1280px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form div{padding: 10px 20px;}
+form div1{padding: 10px 20px;}
+body {
+    margin-left:20px;
+}
+
+.input{
+    width:98%;
+}
+
+.inputArea{
+    width:99%;
+}
+
+.firstLine{
+    background-color:#93d2ff;
+}
+
+.rightInputLavel{
+    margin-left:40px;
+}
+
+.edit{
+    width:300px;
+    margin-left:20px
+}
+.deleteInfo{
+    margin-left:20px
+}
+
+.text{
+    border: 1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 1070px;
+    margin-left:20px
+}
+
+.text_s{
+    border: 1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 300px;
+    margin-left:20px
+}
+
+.btnInfo{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+    width: 100px;
+}
+
+.title1{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.label1{
+    font-weight:bold;
+    font-size: x-large;
+}
+.exlist{
+    color:red;
+    font-size: medium;
+}
+
+#backBtn{
+    margin-left:20px;
+}
+#deleteBtn{
+    margin-left:1148px;
+}
+#updateBtn{
+    margin-left:1020px;
+}
+
+.divLeft{
+    width: 150px;
+    margin-right:0px;
+    padding-right:0px;
+}
+.divRight{
+    width: 550px;
+    margin-left:0px;
+    margin-right:0px;
+    padding-left:0px;
+    padding-right:0px;
+}
+.sampleColor{
+    background-color:#fff;
+    line-height: 1.5em;
+    width: 60px;
+}
+
+.textbox_category_id{
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 40px;
+    margin-left:20px
+}
+.textbox_category_name{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    margin-left:20px
+}
+.textbox_parent_category_id{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 40px;
+    margin-left:20px
+}
+.textbox_parent_category_name{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    margin-left:20px
+}
+.textbox_theme_color{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 60px;
+    margin-left:20px
+}
+.textbox_description{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 1070px;
+    margin-left:20px
+}
+.textbox_category_text{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 1070px;
+    margin-left:20px
+}
+.textbox_view_order{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 30px;
+    margin-left:20px
+}
+.textbox_open_start{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 80px;
+    margin-left:20px
+}
+.textbox_open_end{
+    border: 1px solid #777;
+    padding: 5px 10px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    width: 80px;
+    margin-left:20px
+}

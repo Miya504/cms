@@ -1,0 +1,2238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TbCms.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="l_download">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="number" Type="smallint" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_businesses">
+          <Key>
+            <PropertyRef Name="business_id" />
+          </Key>
+          <Property Name="business_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="business_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="view_order" Type="smallint" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="parent_category_id" Type="smallint" />
+          <Property Name="theme_color" Type="varchar" MaxLength="6" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="category_text" Type="ntext" />
+          <Property Name="view_order" Type="smallint" />
+          <Property Name="open_kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="open_start" Type="date" />
+          <Property Name="open_end" Type="date" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_creators">
+          <Key>
+            <PropertyRef Name="creator_id" />
+          </Key>
+          <Property Name="creator_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="creator_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" />
+          <Property Name="creator_title" Type="nvarchar" MaxLength="50" />
+          <Property Name="creator_comment" Type="ntext" />
+          <Property Name="creator_company_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="creator_address" Type="ntext" />
+          <Property Name="creator_url" Type="ntext" />
+          <Property Name="particular_field" Type="nvarchar" MaxLength="50" />
+          <Property Name="certificate" Type="ntext" />
+          <Property Name="business_area" Type="nvarchar" MaxLength="512" />
+          <Property Name="advantage" Type="ntext" />
+          <Property Name="career" Type="ntext" />
+          <Property Name="creator_memo" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_file_kinds">
+          <Key>
+            <PropertyRef Name="file_kind_id" />
+          </Key>
+          <Property Name="file_kind_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_kind_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="extension" Type="varchar" MaxLength="50" />
+          <Property Name="application" Type="nvarchar" MaxLength="255" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_keywords">
+          <Key>
+            <PropertyRef Name="keyword_id" />
+          </Key>
+          <Property Name="keyword_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tag_text" Type="ntext" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_menus">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menu_kind" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="menu_view_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="taget_controller" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="target_action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_news_elements">
+          <Key>
+            <PropertyRef Name="news_element_id" />
+          </Key>
+          <Property Name="news_element_id" Type="tinyint" Nullable="false" />
+          <Property Name="news_element_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_occupations">
+          <Key>
+            <PropertyRef Name="occupation_id" />
+          </Key>
+          <Property Name="occupation_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="occupation_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="view_order" Type="smallint" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_paper_makers">
+          <Key>
+            <PropertyRef Name="paper_maker_id" />
+          </Key>
+          <Property Name="paper_maker_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paper_maker_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="paper_maker_url" Type="varchar" MaxLength="512" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_paper_sizes">
+          <Key>
+            <PropertyRef Name="paper_size_id" />
+          </Key>
+          <Property Name="paper_size_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paper_size_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="paper_picture_path" Type="varchar" MaxLength="512" />
+          <Property Name="Imposition_height" Type="tinyint" />
+          <Property Name="Imposition_width" Type="tinyint" />
+          <Property Name="print_angle" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_papers">
+          <Key>
+            <PropertyRef Name="paper_id" />
+          </Key>
+          <Property Name="paper_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paper_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="paper_maker_id" Type="smallint" Nullable="false" />
+          <Property Name="paper_url" Type="varchar" MaxLength="512" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_permission_kinds">
+          <Key>
+            <PropertyRef Name="permission_kind" />
+          </Key>
+          <Property Name="permission_kind" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="permission_kind_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_permissions">
+          <Key>
+            <PropertyRef Name="role_id" />
+            <PropertyRef Name="permission_kind" />
+          </Key>
+          <Property Name="role_id" Type="tinyint" Nullable="false" />
+          <Property Name="permission_kind" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_system_users">
+          <Key>
+            <PropertyRef Name="system_user_id" />
+          </Key>
+          <Property Name="system_user_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="role_id" Type="tinyint" Nullable="false" />
+          <Property Name="system_user_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="mail_address" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="m_tags">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tag_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="open_kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="open_start" Type="date" />
+          <Property Name="open_end" Type="date" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_category_files">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="category_id" Type="smallint" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_category_tags">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="category_id" Type="smallint" Nullable="false" />
+          <Property Name="tag_id" Type="smallint" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_contents">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="paper_size_id" Type="smallint" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_contents_files">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_contents_info_tags">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="smallint" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_contents_infos">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contents_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contents_url_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="category_id" Type="smallint" Nullable="false" />
+          <Property Name="contents_kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="contents_angle" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="contents_text" Type="ntext" />
+          <Property Name="creator_id" Type="smallint" Nullable="false" />
+          <Property Name="business_id" Type="tinyint" Nullable="false" />
+          <Property Name="occupation_id" Type="tinyint" Nullable="false" />
+          <Property Name="open_kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="open_start" Type="date" />
+          <Property Name="open_end" Type="date" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_contents_reviews">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="review_text" Type="ntext" />
+          <Property Name="valuation" Type="smallint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_file_infos">
+          <Key>
+            <PropertyRef Name="file_info_id" />
+          </Key>
+          <Property Name="file_info_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="contents_id" Type="bigint" Nullable="false" />
+          <Property Name="kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="file_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="file_path" Type="varchar" MaxLength="512" Nullable="false" />
+          <Property Name="paper_size_id" Type="smallint" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="int" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="int" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="int" />
+        </EntityType>
+        <EntityType Name="t_files">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_kind_id" Type="tinyint" Nullable="false" />
+          <Property Name="file_path" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="file_size" Type="int" />
+          <Property Name="file_direction" Type="varchar" MaxLength="1" />
+          <Property Name="file_height" Type="int" />
+          <Property Name="file_width" Type="int" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="news_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="news_title" Type="nvarchar" MaxLength="255" />
+          <Property Name="page_description" Type="nvarchar" MaxLength="255" />
+          <Property Name="keyword_id" Type="smallint" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="255" />
+          <Property Name="news_header" Type="nvarchar" MaxLength="50" />
+          <Property Name="news_text" Type="ntext" />
+          <Property Name="open_kind" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="open_start" Type="date" />
+          <Property Name="open_end" Type="date" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news_add_element_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="news_add_order" Type="smallint" Nullable="false" />
+          <Property Name="tag_id" Type="smallint" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news_add_elements">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="news_add_order" Type="smallint" Nullable="false" />
+          <Property Name="news_element_id" Type="tinyint" Nullable="false" />
+          <Property Name="word_element_1" Type="ntext" />
+          <Property Name="word_element_2" Type="ntext" />
+          <Property Name="number_element_1" Type="bigint" />
+          <Property Name="number_element_2" Type="bigint" />
+          <Property Name="control_element_1" Type="varchar" MaxLength="1" />
+          <Property Name="control_element_2" Type="varchar" MaxLength="1" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news_add_files">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="news_id" Type="smallint" Nullable="false" />
+          <Property Name="news_add_order" Type="smallint" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news_files">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="file_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_news_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="smallint" Nullable="false" />
+          <Property Name="view_order" Type="tinyint" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_paper_size_papers">
+          <Key>
+            <PropertyRef Name="paper_size_id" />
+            <PropertyRef Name="paper_id" />
+          </Key>
+          <Property Name="paper_size_id" Type="smallint" Nullable="false" />
+          <Property Name="paper_id" Type="int" Nullable="false" />
+          <Property Name="delete_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="create_function" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_date_time" Type="datetime" Nullable="false" />
+          <Property Name="create_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="update_function" Type="varchar" MaxLength="50" />
+          <Property Name="update_date_time" Type="datetime" />
+          <Property Name="update_system_user" Type="varchar" MaxLength="20" />
+          <Property Name="delete_function" Type="varchar" MaxLength="50" />
+          <Property Name="delete_date_time" Type="datetime" />
+          <Property Name="delete_system_user" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="TbCmsModelsStoreContainer">
+          <EntitySet Name="l_download" EntityType="Self.l_download" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_businesses" EntityType="Self.m_businesses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_categories" EntityType="Self.m_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_creators" EntityType="Self.m_creators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_file_kinds" EntityType="Self.m_file_kinds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_keywords" EntityType="Self.m_keywords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_menus" EntityType="Self.m_menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_news_elements" EntityType="Self.m_news_elements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_occupations" EntityType="Self.m_occupations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_paper_makers" EntityType="Self.m_paper_makers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_paper_sizes" EntityType="Self.m_paper_sizes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_papers" EntityType="Self.m_papers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_permission_kinds" EntityType="Self.m_permission_kinds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_permissions" EntityType="Self.m_permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_roles" EntityType="Self.m_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_system_users" EntityType="Self.m_system_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_tags" EntityType="Self.m_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_category_files" EntityType="Self.t_category_files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_category_tags" EntityType="Self.t_category_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_contents" EntityType="Self.t_contents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_contents_files" EntityType="Self.t_contents_files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_contents_info_tags" EntityType="Self.t_contents_info_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_contents_infos" EntityType="Self.t_contents_infos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_contents_reviews" EntityType="Self.t_contents_reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_file_infos" EntityType="Self.t_file_infos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_files" EntityType="Self.t_files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news" EntityType="Self.t_news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_add_element_tags" EntityType="Self.t_news_add_element_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_add_elements" EntityType="Self.t_news_add_elements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_add_files" EntityType="Self.t_news_add_files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_files" EntityType="Self.t_news_files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_news_tags" EntityType="Self.t_news_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_paper_size_papers" EntityType="Self.t_paper_size_papers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TbCms.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="l_download">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="number" Type="Int16" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_businesses">
+          <Key>
+            <PropertyRef Name="business_id" />
+          </Key>
+          <Property Name="business_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="business_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="view_order" Type="Int16" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parent_category_id" Type="Int16" />
+          <Property Name="theme_color" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="category_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="view_order" Type="Int16" />
+          <Property Name="open_kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="open_start" Type="DateTime" Precision="0" />
+          <Property Name="open_end" Type="DateTime" Precision="0" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_creators">
+          <Key>
+            <PropertyRef Name="creator_id" />
+          </Key>
+          <Property Name="creator_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="creator_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creator_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creator_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creator_company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creator_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creator_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="particular_field" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certificate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="business_area" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="advantage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="career" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creator_memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_file_kinds">
+          <Key>
+            <PropertyRef Name="file_kind_id" />
+          </Key>
+          <Property Name="file_kind_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_kind_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="application" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_keywords">
+          <Key>
+            <PropertyRef Name="keyword_id" />
+          </Key>
+          <Property Name="keyword_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tag_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_menus">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_kind" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="menu_view_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="taget_controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="target_action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_news_elements">
+          <Key>
+            <PropertyRef Name="news_element_id" />
+          </Key>
+          <Property Name="news_element_id" Type="Byte" Nullable="false" />
+          <Property Name="news_element_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_occupations">
+          <Key>
+            <PropertyRef Name="occupation_id" />
+          </Key>
+          <Property Name="occupation_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="occupation_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="view_order" Type="Int16" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_paper_makers">
+          <Key>
+            <PropertyRef Name="paper_maker_id" />
+          </Key>
+          <Property Name="paper_maker_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paper_maker_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paper_maker_url" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_paper_sizes">
+          <Key>
+            <PropertyRef Name="paper_size_id" />
+          </Key>
+          <Property Name="paper_size_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paper_size_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paper_picture_path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Imposition_height" Type="Byte" />
+          <Property Name="Imposition_width" Type="Byte" />
+          <Property Name="print_angle" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_papers">
+          <Key>
+            <PropertyRef Name="paper_id" />
+          </Key>
+          <Property Name="paper_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paper_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paper_maker_id" Type="Int16" Nullable="false" />
+          <Property Name="paper_url" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="m_permissions">
+          <Key>
+            <PropertyRef Name="role_id" />
+            <PropertyRef Name="permission_kind" />
+          </Key>
+          <Property Name="role_id" Type="Byte" Nullable="false" />
+          <Property Name="permission_kind" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="m_roles" Relationship="TbCms.Models.m_rolesm_permissions" FromRole="m_permissions" ToRole="m_roles" />
+          <NavigationProperty Name="m_permission_kinds" Relationship="TbCms.Models.m_permission_kindsm_permissions" FromRole="m_permissions" ToRole="m_permission_kinds" />
+        </EntityType>
+        <EntityType Name="m_roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="m_system_users" Relationship="TbCms.Models.m_system_usersm_roles" FromRole="m_roles" ToRole="m_system_users" />
+          <NavigationProperty Name="m_permissions" Relationship="TbCms.Models.m_rolesm_permissions" FromRole="m_roles" ToRole="m_permissions" />
+        </EntityType>
+        <EntityType Name="m_system_users">
+          <Key>
+            <PropertyRef Name="system_user_id" />
+          </Key>
+          <Property Name="system_user_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role_id" Type="Byte" Nullable="false" />
+          <Property Name="system_user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="mail_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="m_roles" Relationship="TbCms.Models.m_system_usersm_roles" FromRole="m_system_users" ToRole="m_roles" />
+        </EntityType>
+        <EntityType Name="m_tags">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tag_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="open_kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="open_start" Type="DateTime" Precision="0" />
+          <Property Name="open_end" Type="DateTime" Precision="0" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_category_files">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="category_id" Type="Int16" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_category_tags">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="category_id" Type="Int16" Nullable="false" />
+          <Property Name="tag_id" Type="Int16" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_contents">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="paper_size_id" Type="Int16" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_contents_files">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_contents_info_tags">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int16" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_contents_infos">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contents_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contents_url_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="category_id" Type="Int16" Nullable="false" />
+          <Property Name="contents_kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contents_angle" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contents_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creator_id" Type="Int16" Nullable="false" />
+          <Property Name="business_id" Type="Byte" Nullable="false" />
+          <Property Name="occupation_id" Type="Byte" Nullable="false" />
+          <Property Name="open_kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="open_start" Type="DateTime" Precision="0" />
+          <Property Name="open_end" Type="DateTime" Precision="0" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_contents_reviews">
+          <Key>
+            <PropertyRef Name="contents_info_id" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="contents_info_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="review_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="valuation" Type="Int16" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_file_infos">
+          <Key>
+            <PropertyRef Name="file_info_id" />
+          </Key>
+          <Property Name="file_info_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="contents_id" Type="Int64" Nullable="false" />
+          <Property Name="kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="file_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="file_path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paper_size_id" Type="Int16" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="Int32" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="Int32" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="Int32" />
+        </EntityType>
+        <EntityType Name="t_files">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_kind_id" Type="Byte" Nullable="false" />
+          <Property Name="file_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="file_size" Type="Int32" />
+          <Property Name="file_direction" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="file_height" Type="Int32" />
+          <Property Name="file_width" Type="Int32" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="news_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="news_title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="page_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="keyword_id" Type="Int16" />
+          <Property Name="keyword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="news_header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="news_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="open_kind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="open_start" Type="DateTime" Precision="0" />
+          <Property Name="open_end" Type="DateTime" Precision="0" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news_add_element_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="news_add_order" Type="Int16" Nullable="false" />
+          <Property Name="tag_id" Type="Int16" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news_add_elements">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="news_add_order" Type="Int16" Nullable="false" />
+          <Property Name="news_element_id" Type="Byte" Nullable="false" />
+          <Property Name="word_element_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="word_element_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="number_element_1" Type="Int64" />
+          <Property Name="number_element_2" Type="Int64" />
+          <Property Name="control_element_1" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="control_element_2" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news_add_files">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="news_add_order" />
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="news_id" Type="Int16" Nullable="false" />
+          <Property Name="news_add_order" Type="Int16" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news_files">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="file_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="file_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_news_tags">
+          <Key>
+            <PropertyRef Name="news_id" />
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="view_order" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int16" Nullable="false" />
+          <Property Name="view_order" Type="Byte" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_paper_size_papers">
+          <Key>
+            <PropertyRef Name="paper_size_id" />
+            <PropertyRef Name="paper_id" />
+          </Key>
+          <Property Name="paper_size_id" Type="Int16" Nullable="false" />
+          <Property Name="paper_id" Type="Int32" Nullable="false" />
+          <Property Name="delete_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="TbCmsContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="l_download" EntityType="Self.l_download" />
+          <EntitySet Name="m_businesses" EntityType="Self.m_businesses" />
+          <EntitySet Name="m_categories" EntityType="Self.m_categories" />
+          <EntitySet Name="m_creators" EntityType="Self.m_creators" />
+          <EntitySet Name="m_file_kinds" EntityType="Self.m_file_kinds" />
+          <EntitySet Name="m_keywords" EntityType="Self.m_keywords" />
+          <EntitySet Name="m_menus" EntityType="Self.m_menus" />
+          <EntitySet Name="m_news_elements" EntityType="Self.m_news_elements" />
+          <EntitySet Name="m_occupations" EntityType="Self.m_occupations" />
+          <EntitySet Name="m_paper_makers" EntityType="Self.m_paper_makers" />
+          <EntitySet Name="m_paper_sizes" EntityType="Self.m_paper_sizes" />
+          <EntitySet Name="m_papers" EntityType="Self.m_papers" />
+          <EntitySet Name="m_permissions" EntityType="Self.m_permissions" />
+          <EntitySet Name="m_roles" EntityType="Self.m_roles" />
+          <EntitySet Name="m_system_users" EntityType="Self.m_system_users" />
+          <EntitySet Name="m_tags" EntityType="Self.m_tags" />
+          <EntitySet Name="t_category_files" EntityType="Self.t_category_files" />
+          <EntitySet Name="t_category_tags" EntityType="Self.t_category_tags" />
+          <EntitySet Name="t_contents" EntityType="Self.t_contents" />
+          <EntitySet Name="t_contents_files" EntityType="Self.t_contents_files" />
+          <EntitySet Name="t_contents_info_tags" EntityType="Self.t_contents_info_tags" />
+          <EntitySet Name="t_contents_infos" EntityType="Self.t_contents_infos" />
+          <EntitySet Name="t_contents_reviews" EntityType="Self.t_contents_reviews" />
+          <EntitySet Name="t_file_infos" EntityType="Self.t_file_infos" />
+          <EntitySet Name="t_files" EntityType="Self.t_files" />
+          <EntitySet Name="t_news" EntityType="Self.t_news" />
+          <EntitySet Name="t_news_add_element_tags" EntityType="Self.t_news_add_element_tags" />
+          <EntitySet Name="t_news_add_elements" EntityType="Self.t_news_add_elements" />
+          <EntitySet Name="t_news_add_files" EntityType="Self.t_news_add_files" />
+          <EntitySet Name="t_news_files" EntityType="Self.t_news_files" />
+          <EntitySet Name="t_news_tags" EntityType="Self.t_news_tags" />
+          <EntitySet Name="t_paper_size_papers" EntityType="Self.t_paper_size_papers" />
+          <AssociationSet Name="m_system_usersm_roles" Association="TbCms.Models.m_system_usersm_roles">
+            <End Role="m_system_users" EntitySet="m_system_users" />
+            <End Role="m_roles" EntitySet="m_roles" />
+          </AssociationSet>
+          <AssociationSet Name="m_rolesm_permissions" Association="TbCms.Models.m_rolesm_permissions">
+            <End Role="m_roles" EntitySet="m_roles" />
+            <End Role="m_permissions" EntitySet="m_permissions" />
+          </AssociationSet>
+          <EntitySet Name="m_permission_kinds" EntityType="TbCms.Models.m_permission_kinds" />
+          <AssociationSet Name="m_permission_kindsm_permissions" Association="TbCms.Models.m_permission_kindsm_permissions">
+            <End Role="m_permission_kinds" EntitySet="m_permission_kinds" />
+            <End Role="m_permissions" EntitySet="m_permissions" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="m_system_usersm_roles">
+          <End Type="TbCms.Models.m_system_users" Role="m_system_users" Multiplicity="*" />
+          <End Type="TbCms.Models.m_roles" Role="m_roles" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="m_roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="m_system_users">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="m_rolesm_permissions">
+          <End Type="TbCms.Models.m_roles" Role="m_roles" Multiplicity="1" />
+          <End Type="TbCms.Models.m_permissions" Role="m_permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m_roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="m_permissions">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="m_permission_kinds">
+          <Key>
+            <PropertyRef Name="permission_kind" />
+          </Key>
+          <Property Name="permission_kind" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="permission_kind_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="delete_state" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="create_function" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="create_date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="create_user" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date_time" Type="DateTime" Precision="3" />
+          <Property Name="update_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="delete_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="delete_date_time" Type="DateTime" Precision="3" />
+          <Property Name="delete_system_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="m_permissions" Relationship="TbCms.Models.m_permission_kindsm_permissions" FromRole="m_permission_kinds" ToRole="m_permissions" />
+        </EntityType>
+        <Association Name="m_permission_kindsm_permissions">
+          <End Type="TbCms.Models.m_permission_kinds" Role="m_permission_kinds" Multiplicity="1" />
+          <End Type="TbCms.Models.m_permissions" Role="m_permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m_permission_kinds">
+              <PropertyRef Name="permission_kind" />
+            </Principal>
+            <Dependent Role="m_permissions">
+              <PropertyRef Name="permission_kind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TbCmsModelsStoreContainer" CdmEntityContainer="TbCmsContext">
+          <EntitySetMapping Name="l_download">
+            <EntityTypeMapping TypeName="TbCms.Models.l_download">
+              <MappingFragment StoreEntitySet="l_download">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_businesses">
+            <EntityTypeMapping TypeName="TbCms.Models.m_businesses">
+              <MappingFragment StoreEntitySet="m_businesses">
+                <ScalarProperty Name="business_id" ColumnName="business_id" />
+                <ScalarProperty Name="business_name" ColumnName="business_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_categories">
+            <EntityTypeMapping TypeName="TbCms.Models.m_categories">
+              <MappingFragment StoreEntitySet="m_categories">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="parent_category_id" ColumnName="parent_category_id" />
+                <ScalarProperty Name="theme_color" ColumnName="theme_color" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="category_text" ColumnName="category_text" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="open_kind" ColumnName="open_kind" />
+                <ScalarProperty Name="open_start" ColumnName="open_start" />
+                <ScalarProperty Name="open_end" ColumnName="open_end" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_creators">
+            <EntityTypeMapping TypeName="TbCms.Models.m_creators">
+              <MappingFragment StoreEntitySet="m_creators">
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+                <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="creator_title" ColumnName="creator_title" />
+                <ScalarProperty Name="creator_comment" ColumnName="creator_comment" />
+                <ScalarProperty Name="creator_company_name" ColumnName="creator_company_name" />
+                <ScalarProperty Name="creator_address" ColumnName="creator_address" />
+                <ScalarProperty Name="creator_url" ColumnName="creator_url" />
+                <ScalarProperty Name="particular_field" ColumnName="particular_field" />
+                <ScalarProperty Name="certificate" ColumnName="certificate" />
+                <ScalarProperty Name="business_area" ColumnName="business_area" />
+                <ScalarProperty Name="advantage" ColumnName="advantage" />
+                <ScalarProperty Name="career" ColumnName="career" />
+                <ScalarProperty Name="creator_memo" ColumnName="creator_memo" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_file_kinds">
+            <EntityTypeMapping TypeName="TbCms.Models.m_file_kinds">
+              <MappingFragment StoreEntitySet="m_file_kinds">
+                <ScalarProperty Name="file_kind_id" ColumnName="file_kind_id" />
+                <ScalarProperty Name="file_kind_name" ColumnName="file_kind_name" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="application" ColumnName="application" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_keywords">
+            <EntityTypeMapping TypeName="TbCms.Models.m_keywords">
+              <MappingFragment StoreEntitySet="m_keywords">
+                <ScalarProperty Name="keyword_id" ColumnName="keyword_id" />
+                <ScalarProperty Name="tag_text" ColumnName="tag_text" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_menus">
+            <EntityTypeMapping TypeName="TbCms.Models.m_menus">
+              <MappingFragment StoreEntitySet="m_menus">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_kind" ColumnName="menu_kind" />
+                <ScalarProperty Name="menu_view_name" ColumnName="menu_view_name" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="taget_controller" ColumnName="taget_controller" />
+                <ScalarProperty Name="target_action" ColumnName="target_action" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_news_elements">
+            <EntityTypeMapping TypeName="TbCms.Models.m_news_elements">
+              <MappingFragment StoreEntitySet="m_news_elements">
+                <ScalarProperty Name="news_element_id" ColumnName="news_element_id" />
+                <ScalarProperty Name="news_element_name" ColumnName="news_element_name" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_occupations">
+            <EntityTypeMapping TypeName="TbCms.Models.m_occupations">
+              <MappingFragment StoreEntitySet="m_occupations">
+                <ScalarProperty Name="occupation_id" ColumnName="occupation_id" />
+                <ScalarProperty Name="occupation_name" ColumnName="occupation_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_paper_makers">
+            <EntityTypeMapping TypeName="TbCms.Models.m_paper_makers">
+              <MappingFragment StoreEntitySet="m_paper_makers">
+                <ScalarProperty Name="paper_maker_id" ColumnName="paper_maker_id" />
+                <ScalarProperty Name="paper_maker_name" ColumnName="paper_maker_name" />
+                <ScalarProperty Name="paper_maker_url" ColumnName="paper_maker_url" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_paper_sizes">
+            <EntityTypeMapping TypeName="TbCms.Models.m_paper_sizes">
+              <MappingFragment StoreEntitySet="m_paper_sizes">
+                <ScalarProperty Name="paper_size_id" ColumnName="paper_size_id" />
+                <ScalarProperty Name="paper_size_name" ColumnName="paper_size_name" />
+                <ScalarProperty Name="paper_picture_path" ColumnName="paper_picture_path" />
+                <ScalarProperty Name="Imposition_height" ColumnName="Imposition_height" />
+                <ScalarProperty Name="Imposition_width" ColumnName="Imposition_width" />
+                <ScalarProperty Name="print_angle" ColumnName="print_angle" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_papers">
+            <EntityTypeMapping TypeName="TbCms.Models.m_papers">
+              <MappingFragment StoreEntitySet="m_papers">
+                <ScalarProperty Name="paper_id" ColumnName="paper_id" />
+                <ScalarProperty Name="paper_name" ColumnName="paper_name" />
+                <ScalarProperty Name="paper_maker_id" ColumnName="paper_maker_id" />
+                <ScalarProperty Name="paper_url" ColumnName="paper_url" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_permissions">
+            <EntityTypeMapping TypeName="TbCms.Models.m_permissions">
+              <MappingFragment StoreEntitySet="m_permissions">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="permission_kind" ColumnName="permission_kind" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_roles">
+            <EntityTypeMapping TypeName="TbCms.Models.m_roles">
+              <MappingFragment StoreEntitySet="m_roles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_system_users">
+            <EntityTypeMapping TypeName="TbCms.Models.m_system_users">
+              <MappingFragment StoreEntitySet="m_system_users">
+                <ScalarProperty Name="system_user_id" ColumnName="system_user_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="system_user_name" ColumnName="system_user_name" />
+                <ScalarProperty Name="mail_address" ColumnName="mail_address" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.m_tags">
+              <MappingFragment StoreEntitySet="m_tags">
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="open_kind" ColumnName="open_kind" />
+                <ScalarProperty Name="open_start" ColumnName="open_start" />
+                <ScalarProperty Name="open_end" ColumnName="open_end" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_category_files">
+            <EntityTypeMapping TypeName="TbCms.Models.t_category_files">
+              <MappingFragment StoreEntitySet="t_category_files">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_category_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.t_category_tags">
+              <MappingFragment StoreEntitySet="t_category_tags">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_contents">
+            <EntityTypeMapping TypeName="TbCms.Models.t_contents">
+              <MappingFragment StoreEntitySet="t_contents">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="paper_size_id" ColumnName="paper_size_id" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_contents_files">
+            <EntityTypeMapping TypeName="TbCms.Models.t_contents_files">
+              <MappingFragment StoreEntitySet="t_contents_files">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_contents_info_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.t_contents_info_tags">
+              <MappingFragment StoreEntitySet="t_contents_info_tags">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_contents_infos">
+            <EntityTypeMapping TypeName="TbCms.Models.t_contents_infos">
+              <MappingFragment StoreEntitySet="t_contents_infos">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="contents_name" ColumnName="contents_name" />
+                <ScalarProperty Name="contents_url_name" ColumnName="contents_url_name" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="contents_kind" ColumnName="contents_kind" />
+                <ScalarProperty Name="contents_angle" ColumnName="contents_angle" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="contents_text" ColumnName="contents_text" />
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+                <ScalarProperty Name="business_id" ColumnName="business_id" />
+                <ScalarProperty Name="occupation_id" ColumnName="occupation_id" />
+                <ScalarProperty Name="open_kind" ColumnName="open_kind" />
+                <ScalarProperty Name="open_start" ColumnName="open_start" />
+                <ScalarProperty Name="open_end" ColumnName="open_end" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_contents_reviews">
+            <EntityTypeMapping TypeName="TbCms.Models.t_contents_reviews">
+              <MappingFragment StoreEntitySet="t_contents_reviews">
+                <ScalarProperty Name="contents_info_id" ColumnName="contents_info_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="review_text" ColumnName="review_text" />
+                <ScalarProperty Name="valuation" ColumnName="valuation" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_file_infos">
+            <EntityTypeMapping TypeName="TbCms.Models.t_file_infos">
+              <MappingFragment StoreEntitySet="t_file_infos">
+                <ScalarProperty Name="file_info_id" ColumnName="file_info_id" />
+                <ScalarProperty Name="contents_id" ColumnName="contents_id" />
+                <ScalarProperty Name="kind" ColumnName="kind" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="paper_size_id" ColumnName="paper_size_id" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_files">
+            <EntityTypeMapping TypeName="TbCms.Models.t_files">
+              <MappingFragment StoreEntitySet="t_files">
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="file_kind_id" ColumnName="file_kind_id" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="file_size" ColumnName="file_size" />
+                <ScalarProperty Name="file_direction" ColumnName="file_direction" />
+                <ScalarProperty Name="file_height" ColumnName="file_height" />
+                <ScalarProperty Name="file_width" ColumnName="file_width" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news">
+              <MappingFragment StoreEntitySet="t_news">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="news_name" ColumnName="news_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="news_title" ColumnName="news_title" />
+                <ScalarProperty Name="page_description" ColumnName="page_description" />
+                <ScalarProperty Name="keyword_id" ColumnName="keyword_id" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="news_header" ColumnName="news_header" />
+                <ScalarProperty Name="news_text" ColumnName="news_text" />
+                <ScalarProperty Name="open_kind" ColumnName="open_kind" />
+                <ScalarProperty Name="open_start" ColumnName="open_start" />
+                <ScalarProperty Name="open_end" ColumnName="open_end" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news_add_element_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_add_element_tags">
+              <MappingFragment StoreEntitySet="t_news_add_element_tags">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="news_add_order" ColumnName="news_add_order" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news_add_elements">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_add_elements">
+              <MappingFragment StoreEntitySet="t_news_add_elements">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="news_add_order" ColumnName="news_add_order" />
+                <ScalarProperty Name="news_element_id" ColumnName="news_element_id" />
+                <ScalarProperty Name="word_element_1" ColumnName="word_element_1" />
+                <ScalarProperty Name="word_element_2" ColumnName="word_element_2" />
+                <ScalarProperty Name="number_element_1" ColumnName="number_element_1" />
+                <ScalarProperty Name="number_element_2" ColumnName="number_element_2" />
+                <ScalarProperty Name="control_element_1" ColumnName="control_element_1" />
+                <ScalarProperty Name="control_element_2" ColumnName="control_element_2" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news_add_files">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_add_files">
+              <MappingFragment StoreEntitySet="t_news_add_files">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="news_add_order" ColumnName="news_add_order" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news_files">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_files">
+              <MappingFragment StoreEntitySet="t_news_files">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_news_tags">
+            <EntityTypeMapping TypeName="TbCms.Models.t_news_tags">
+              <MappingFragment StoreEntitySet="t_news_tags">
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="view_order" ColumnName="view_order" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_paper_size_papers">
+            <EntityTypeMapping TypeName="TbCms.Models.t_paper_size_papers">
+              <MappingFragment StoreEntitySet="t_paper_size_papers">
+                <ScalarProperty Name="paper_size_id" ColumnName="paper_size_id" />
+                <ScalarProperty Name="paper_id" ColumnName="paper_id" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_permission_kinds">
+            <EntityTypeMapping TypeName="TbCms.Models.m_permission_kinds">
+              <MappingFragment StoreEntitySet="m_permission_kinds">
+                <ScalarProperty Name="delete_system_user" ColumnName="delete_system_user" />
+                <ScalarProperty Name="delete_date_time" ColumnName="delete_date_time" />
+                <ScalarProperty Name="delete_function" ColumnName="delete_function" />
+                <ScalarProperty Name="update_system_user" ColumnName="update_system_user" />
+                <ScalarProperty Name="update_date_time" ColumnName="update_date_time" />
+                <ScalarProperty Name="update_function" ColumnName="update_function" />
+                <ScalarProperty Name="create_user" ColumnName="create_user" />
+                <ScalarProperty Name="create_date_time" ColumnName="create_date_time" />
+                <ScalarProperty Name="create_function" ColumnName="create_function" />
+                <ScalarProperty Name="delete_state" ColumnName="delete_state" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="permission_kind_name" ColumnName="permission_kind_name" />
+                <ScalarProperty Name="permission_kind" ColumnName="permission_kind" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="なし" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!--@Styles.Render("~/Content/css")-->
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js")
+    @Scripts.Render("http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script>
+      $(function() {
+          $("#datepicker1").datepicker();
+          $("#datepicker1").datepicker("option", "showOn", 'button');
+
+          $("#datepicker2").datepicker();
+          $("#datepicker2").datepicker("option", "showOn", 'button');
+
+          $("#datepicker3").datepicker();
+          $("#datepicker3").datepicker("option", "showOn", 'button');
+
+          $("#datepicker4").datepicker();
+          $("#datepicker4").datepicker("option", "showOn", 'button');
+
+          $(".ui-datepicker-trigger").text("日付");
+      });
+      function openWindow() {
+          window.open("ReferencePage", "", "width=500,height=400");
+      }
+</script>

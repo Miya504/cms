@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/MasterView.css" rel="stylesheet" />
+    <title>職種マスター一覧</title>
+</head>
+<form>
+    <div id="contents">
+
+        <h1 class="title1">職種マスタ一覧</h1>
+        <h2 class="title3">検索条件</h2>
+        <div class="sarchArea">
+            <label class="label1">職種名</label><br />
+
+            <!-- 職種名テキストボックス -->
+            <input type="text" class="searchText" style="margin-left:20px">
+            <button class="btnInfo" style="margin-left:20px">参照</button>
+            <br>
+            <br>
+            <label class="label2">表示範囲</label><br />
+            <br>
+            <div class="deleteArea" style="margin-left:20px">
+                <input type="checkbox" checked id="checkbox01">通常
+                <input type="checkbox" style="margin-left:20px" id="checkbox02">仮削除
+                <input type="checkbox" style="margin-left:20px" id="checkbox03">削除
+            </div>
+            <!-- 検索ボタン-->
+            <button class="btnInfo" style="margin-left:1075px">検索</button><br />
+
+        </div>
+        <br>
+        <h2 class="title3">職種一覧</h2>
+        <!--GridViewで表示-->
+        <div style="margin-right:20px">
+            <asp:GridView ID="GridView1" runat="server" BorderStyle="None" AutoGenerateColumns="False" HeaderStyle-BorderStyle="none" HeaderStyle-BorderWidth="0" FooterStyle-BorderStyle="none" FooterStyle-BorderWidth="0" RowStyle-BorderStyle="none" RowStyle-BorderWidth="0" CellPadding="0" GridLines="None">
+                <Columns>
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            <table border="1" rules="all" id="viewTable">
+                                <tr>
+                                    <td class="firstLine"><label>職種ID</label></td>
+                                    <td class="firstLine"><label>職種名</label></td>
+                                    <td class="firstLine"><label>説明</label></td>
+                                </tr>
+                                <tr>
+                                    <td class="tableInfo"><label>GID__</label></td>
+                                    <td class="tableInfo"><label>あいうえお</label></td>
+                                    <td class="tableInfo"><label>あああああ</label></td>
+                                </tr>
+                                <tr>
+                                    <td class="tableInfo"><label>GID__</label></td>
+                                    <td class="tableInfo"><label>かきくけこ</label></td>
+                                    <td class="tableInfo"><label>かかかか</label></td>
+                                </tr>
+                            </table>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                        </FooterTemplate>
+                        <FooterStyle BorderWidth="0px" />
+                        <HeaderStyle BorderWidth="0px" />
+                        <ItemStyle BorderWidth="0px" />
+                    </asp:TemplateField>
+                </Columns>
+                <FooterStyle BorderStyle="None" BorderWidth="0px" />
+                <HeaderStyle BorderStyle="None" BorderWidth="0px" />
+            </asp:GridView>
+        </div>
+
+        <br>
+        <div>
+            <br>
+            <button class="btnInfo">戻る</button>　　　 <button id="newBtn" class="btnInfo">新規</button>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+
+    </div>
+
+</form>
+</html>

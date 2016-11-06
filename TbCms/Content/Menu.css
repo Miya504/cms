@@ -1,0 +1,123 @@
+﻿form{
+    background: #eee;
+    width:1280px; 
+    padding:20px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form div{padding: 10px 20px;}
+form div1{padding: 10px 20px;}
+
+body {
+    margin-left:20px;
+}
+
+.dayInput{
+    width:80px;
+}
+.input{
+    width:98%;
+}
+
+/*職種一覧表１行目*/
+.firstLine{
+    font-weight:bold;
+    background-color:#ffdc94;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+/*職種一覧表２行目以降*/
+.tableInfo{
+    background-color: #ffffff;
+    line-height: 1.5em;
+    padding-left: 5px;
+}
+
+/*ボタン*/
+.btnInfo{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+    width: 100px;
+}
+
+
+/*メニューボタン*/
+.menuBtnInfo { 
+    /*幅の指定可能*/
+    display: inline-block;
+    width: 230px;
+    height: 40px;
+    font-size: 1.6em;
+    border:1px solid #777;
+    padding: 4px 10px;
+    margin-right:30px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;
+    /*テキストを中央寄せ*/
+    text-align: center; 
+ } 
+
+/*検索条件エリア*/
+.sarchArea{
+    background-color: #dddddd;
+    border:3px solid #6e6e6e;
+    border-style: solid;
+    width: 880px;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.deleteArea{
+    background-color: #dddddd;
+    border:1px solid #000000;
+    width: 230px;
+}
+
+/*検索条件テキスト*/
+.searchText{
+    border-radius: 5px;
+    width:200px;
+}
+
+
+.title1{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.title3{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.label1{
+    font-weight:bold;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.label2{
+    font-weight:bold;
+    line-height: 1.5em;
+}
+
+/*職種一覧テーブル*/
+#viewTable{
+    width:1200px;
+}
+
+#viewTable2{
+    width:1200px;
+}
+
+/*新規ボタン*/
+#newBtn{
+    margin-left:1015px;
+}

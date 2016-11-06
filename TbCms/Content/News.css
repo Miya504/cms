@@ -1,0 +1,199 @@
+﻿form{background: #eee;width:1280px;}
+
+form div{padding: 10px 20px;}
+form div1{padding: 10px 20px;}
+
+.text{
+    border:1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    /*↓これが無いと幅が最大280pxになる*/
+    max-width: 100%;
+
+    width: 100%;
+}
+
+.addElementText{
+    border:1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    /*↓これが無いと幅が最大280pxになる*/
+    margin-left: 9%;
+    max-width: 100%;
+
+    width: 70%;
+    
+    margin-top:5px;
+    margin-left:9.5%;
+}
+
+.addElementTextArea{
+    border:1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    margin-left: 10%;
+    max-width: 100%;
+    width: 70%;
+    margin-left:9.5%;
+}
+
+.addElementMedia{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;
+    margin-left: 10%;
+    max-width: 100%;
+}
+
+textarea{
+    border:1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.dropdown{
+    border:1px solid #777;
+    padding: 5px;
+    color: #000000;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.submit{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+}
+
+.entry{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;     
+
+    margin-left: 88.4%;
+}
+
+.back{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #fe6060;
+    border-radius: 5px;     
+}
+
+.add{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;
+
+    margin-left: 94.5%;
+}
+
+.addMedia{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;         
+}
+
+.addElementBtn{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #428ec9;
+    border-radius: 5px;
+    margin-left: 1%;       
+}
+
+.deleteButton{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #fe6060;
+    border-radius: 5px;     
+
+    margin-left: 10px;
+}
+
+.arrowBtn{
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #cfcfcf;
+    border-radius: 5px;
+
+    margin-left: 5px;
+}
+
+.div1{
+    background: #cfcfcf;
+    width:80%;
+    margin: 0 auto;
+}
+
+.tabBtn{
+    border:1px solid #777;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    height:36px;   
+}
+
+div.addElement {
+    padding: 10px 0px;
+}
+/* ▼ タブメニュー全体の設定 */
+div.tabbox { margin: 15px 0 0 0; padding: 10px 20px;
+    
+}
+/* ▼ タブ部分のマージンとパディング領域を設定 */
+p.tabs a {
+   /* ▼ リンクをタブのように見せる */
+   display: block; width: 100px; float: left;
+   margin: 0px 1px -2px 1px; padding: 3px;
+   text-align: center;
+   font-size:12px;
+   border-radius: 5px 5px 0px 0px;
+}
+/* ▼ タブごとの配色設定 */
+p.tabs a.tab1 {text-decoration:none; background-color:#fafafa;border-right:1px solid #dcdcdc;border-left:1px solid #dcdcdc;border-top: 1px solid #dcdcdc;  color: #666; font-weight:600;}
+p.tabs a.tab2 {text-decoration:none; background-color:#fafafa; border-right:1px solid #dcdcdc; border-left:1px solid #dcdcdc; border-top: 1px solid #dcdcdc; color: #666;font-weight:600;}
+p.tabs a:hover {opacity:0.7;filter:alpha(opacity=70);}
+/* ▼ タブ中身のボックス */
+div.tab {
+   /* ▼ ボックス共通の装飾 */
+   clear: left;
+}
+/* ▼ 各ボックスの配色設定 */
+div#tab1 { border: 2px solid #DDD; background-color: #fbfbfb; }
+div#tab2 { border: 2px solid #DDD; background-color: #fbfbfb; }
+div#tab3 { border: 2px solid #DDD; background-color: #fbfbfb; }
+div.tab p { margin: 0.5em; }

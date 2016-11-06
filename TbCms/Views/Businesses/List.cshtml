@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/MasterView.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BusinessMaster</title>
+</head>
+<form>
+    <h1 class="title1">業種マスタ一覧</h1>
+    <h2 class="title3">検索条件</h2>
+    <div class="sarchArea">
+        <label class="label1">業種名</label><br />
+        <input type="text" class="search" style="margin-left:20px"> <button class="btnInfo" style="margin-left:20px">参照</button><br />
+        <br>
+        <label class="label2">表示範囲</label><br />
+        <br>
+        <div class="deleteArea" style="margin-left:20px">
+            <input type="checkbox">通常
+            <input type="checkbox" style="margin-left:20px">仮削除
+            <input type="checkbox" style="margin-left:20px">削除
+        </div> <button class="btnInfo" style="margin-left:1100px">検索</button><br />
+    </div>
+    <br>
+    <h2 class="title3">業種一覧</h2>
+    <div>
+        <table border="1" rules="all" id="viewTable">
+            <tr>
+                <td class="firstLine"><label>業種ID</label></td>
+                <td class="firstLine"><label>業種名</label></td>
+                <td class="firstLine"><label>説明</label></td>
+            </tr>
+            <tr>
+                <td class="tableInfo"><label>GID__</label></td>
+                <td class="tableInfo"><label>あいうえお</label></td>
+                <td class="tableInfo"><label>あああああ</label></td>
+            </tr>
+            <tr>
+                <td class="tableInfo"><label>GID__</label></td>
+                <td class="tableInfo"><label>かきくけこ</label></td>
+                <td class="tableInfo"><label>かかかか</label></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <br>
+        <button class="btnInfo">戻る</button>
+        <button id="newBtn" class="btnInfo">新規</button>
+        <br>
+    </div>
+    <div>
+        <br>
+    </div>
+</form>
+</html>
